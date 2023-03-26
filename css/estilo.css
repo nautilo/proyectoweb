@@ -1,3 +1,80 @@
 body{
-    background-color: aquamarine;
+    background-color: black;
+    overflow-x: hidden;
+}
+.d-flex{
+    position:sticky;
+    top:0px;
+    z-index:1;
+    width:100%;
+    background-color: rgb(0, 0, 0, 0.9);
+}
+#logo{
+    padding-left: 50px;
+}
+.nav-link{
+    color:hsl(0, 100%, 65%);
+    font-size:20px;
+}
+.nav-link:hover{
+    color:hsl(0, 0%, 100%);
+}
+.banner-seccion{
+    background-color: #18cc8d;
+    padding:20px;
+}
+.btn{
+    border-color: hsl(0, 100%, 65%);
+    color:hsl(0, 100%, 65%);
+}
+.btn:hover{
+    border-color: hsl(0, 100%, 65%);
+    background-color: hsl(0, 100%, 65%);
+    color:white;
+}
+
+.btn-primary{
+    background-color: hsl(0, 100%, 65%);
+    color: white;
+}
+.btn-primary:hover{
+    background-color: hsl(0, 52%, 28%);
+    border-color: hsl(0,52%,28%);
+    color: white;
+}
+.busqueda{
+    background-color:hsl(0, 100%, 65%);
+    padding: 10px 20px 20px 20px;
+    margin:auto;
+    width:80%;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+}
+
+.busqueda input{
+    font-size:20px;
+    width:80%;
+}
+.busqueda h3{
+    color:white;
+    font-size:24px;
+}
+
+
+#boton-buscar{
+    width: 100px;
+}
+
+.carousel{
+    overflow:hidden;
+    max-height: 500px;
+}
+
+.carousel img{
+    margin-top:-20%;
+}
+.col img{
+    height: 50px;
 }
