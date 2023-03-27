@@ -72,15 +72,11 @@ body{
     width: 100px;
 }
 
+.carousel-item{
+    max-height: 500px;
+}
 
 
-.contenedor-imagen-carrusel{
-    overflow: hidden;
-    height: 500px;
-}
-.contenedor-imagen-carrusel img{
-    margin-top: -170px;
-}
 .custom-row {
     margin-left: -5px;
     margin-right: -5px;
