@@ -76,6 +76,14 @@ body{
     max-height: 500px;
 }
 
+.carousel-item h1{
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    text-shadow: 1px 1px 2px rgb(0, 0, 0);
+}
+
 
 .custom-row {
     margin-left: -5px;
