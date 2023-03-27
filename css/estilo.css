@@ -50,8 +50,7 @@ body{
 }
 .busqueda{
     background-color:hsl(0, 100%, 65%);
-    padding: 10px 300px 20px 300px;
-    margin:auto;
+    padding: 10px 0px 20px 0px;
     width:100%;
     text-align: center;
     margin-top: 20px;
@@ -60,7 +59,7 @@ body{
 
 .busqueda input{
     font-size:20px;
-    width:80%;
+    width:70%;
 }
 .busqueda h3{
     color:white;
