@@ -2,15 +2,19 @@ body{
     background-color: black;
     overflow-x: hidden;
 }
+.dropdown-toggle::after{
+    display:none;
+}
+.container-fluid{
+    max-width: 1500px;
+}
+
 .d-flex{
     position:sticky;
     top:0px;
     z-index:1;
     width:100%;
     background-color: rgb(0, 0, 0, 0.9);
-}
-#logo{
-    padding-left: 50px;
 }
 .nav-link{
     color:hsl(0, 100%, 65%);
@@ -20,12 +24,14 @@ body{
     color:hsl(0, 0%, 100%);
 }
 .banner-seccion{
-    background-color: #18cc8d;
+    background-color: hsl(0, 100%, 65%);
+    color:black;
     padding:20px;
 }
 .btn{
     border-color: hsl(0, 100%, 65%);
     color:hsl(0, 100%, 65%);
+    margin-left: 10px;
 }
 .btn:hover{
     border-color: hsl(0, 100%, 65%);
@@ -44,13 +50,12 @@ body{
 }
 .busqueda{
     background-color:hsl(0, 100%, 65%);
-    padding: 10px 20px 20px 20px;
+    padding: 10px 300px 20px 300px;
     margin:auto;
-    width:80%;
+    width:100%;
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
-    border-radius: 20px;
 }
 
 .busqueda input{
@@ -67,14 +72,126 @@ body{
     width: 100px;
 }
 
-.carousel{
-    overflow:hidden;
-    max-height: 500px;
+
+
+.contenedor-imagen-carrusel{
+    overflow: hidden;
+    height: 500px;
+}
+.contenedor-imagen-carrusel img{
+    margin-top: -170px;
+}
+.custom-row {
+    margin-left: -5px;
+    margin-right: -5px;
+  }
+  .custom-row [class^="col-"], .custom-row [class*=" col-"] {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+.img {
+    min-height: 300px;
+    background: center/cover no-repeat;
 }
 
-.carousel img{
-    margin-top:-20%;
+.col:first-child {
+    padding-left: 0px;
+    clip-path: polygon(0 0, calc(100% - 15px) 0, calc(100% - 10vw) 100%, 0 100%);
+    margin-right: -5vw;
 }
-.col img{
-    height: 50px;
+
+.col:nth-child(2) {
+    clip-path: polygon(10vw 0, calc(100% - 15px) 0, calc(100% - 10vw) 100%, 15px 100%);
+    margin: 0 -15px;
+}
+
+.col:last-child {
+    clip-path: polygon(10vw 0, 100% 0, 100% 100%, 15px 100%);
+    margin-left: -5vw;
+}
+
+
+#circulos-informacion{
+    margin-top: 100px;
+    margin-left: 10%;
+    margin-right: 10%;
+    color:white;
+    text-align: center;
+}
+#columna-circulo{
+    padding-left: 9%;
+    padding-right: 9%;
+    margin-bottom: 80px;
+}
+#columna-circulo img{
+    margin-bottom: 10px;
+}
+
+#circulo-info-extra{
+    position: absolute;
+    z-index: 1;
+    left: 53%;
+    width: 250px;
+}
+#circulo-info-extra p{
+    font-size: 14px;
+}
+#info-ganancias{
+    background-color: rgb(0, 0, 0, 0.8);
+    border-radius: 10px;
+}
+#info-extra-movil{
+    display: none;
+}
+
+@media screen and (max-width:767px) {
+    #circulo-info-extra{
+        visibility: hidden;
+    }
+    #info-extra-movil{
+        display: flex;
+        margin-top: 40px;
+    }
+}
+#tipos-de-perfil h1{
+    color:white;
+    font-size: 36px;
+    padding: 50px 0 0 50px;
+    margin-right:50px;
+    text-shadow: 1px 1px 2px rgb(0, 0, 0);
+}
+#desc-perfil-productora{
+    margin-top: 30px;
+    font-size: 28px;
+    margin-left: 50px;
+    color: white;
+    padding-right: 50px;
+    min-width: 400px;
+    max-width: 500px;
+    text-shadow: 1px 1px 2px rgb(0, 0, 0);
+}
+#desc-perfil-artista{
+    margin-top: 30px;
+    font-size: 28px;
+    text-align: right;
+    color: white;
+    padding-left: 200px;
+    margin-right: 50px;
+    min-width: 500px;
+    text-shadow: 1px 1px 2px rgb(0, 0, 0);
+}
+.noticia{
+    color:white;
+    background-color: rgb(56, 56, 56);
+    margin: auto;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    text-align: justify;
+}
+.texto-noticia{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
