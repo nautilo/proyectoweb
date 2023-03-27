@@ -1,5 +1,5 @@
 body{
-    background-color: black;
+    background: linear-gradient(rgb(21, 12, 46),rgb(15, 8, 27));
     overflow-x: hidden;
 }
 .dropdown-toggle::after{
