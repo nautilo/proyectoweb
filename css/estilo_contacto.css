@@ -1,0 +1,31 @@
+body{
+    background: linear-gradient(rgb(21, 12, 46),rgb(15, 8, 27));
+    overflow-x: hidden;
+}
+h2{
+    color: white;
+}
+p{
+    color: white;
+}
+label{
+    color: white;
+}
+.botoncontacto{
+    background-color: white;
+    
+}
+.contenedorformulario{
+    display:flex;
+    justify-content: center;
+}
+
+.required-label{
+    color: #F06767;
+    font-size: .85em;
+    width: 100%;
+    clear: both;
+}
+.required-active{
+    box-shadow: 0 0 15px 2px rgba(243,25,25,.2) inset;
+}
