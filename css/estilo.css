@@ -2,6 +2,9 @@ body{
     background: linear-gradient(rgb(21, 12, 46),rgb(15, 8, 27));
     overflow-x: hidden;
 }
+h1,h2,h3{
+    color:white;
+}
 .dropdown-toggle::after{
     display:none;
 }

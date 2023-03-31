@@ -1,0 +1,87 @@
+h1{
+    color:white;
+}
+
+
+  
+  /* Style the table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+    color:white;
+  }
+  
+  /* Style the table header */
+  thead {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  th {
+    height: 40px;
+    text-align: center;
+    background-color: black;
+  }
+  
+  /* Style the table body */
+
+  tbody {
+    font-size: 20px;
+    
+    
+  }
+  
+  td {
+    position:relative;
+    height: 200px;
+    padding: 20px;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+
+  }
+  
+  /* Style the title and subtitle */
+  h3 {
+    margin-top: 0;
+    font-size: 24px;
+  }
+  
+  p {
+    margin-bottom: 0;
+    font-size: 16px;
+  }
+
+td .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8); /* adjust the opacity to make it darker or lighter */
+}
+td .overlay:hover {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* adjust the opacity to make it darker or lighter */
+  }
+.numero-dia{
+    position: absolute;
+}
+.parrafo-dia{
+    position: absolute;
+    bottom: 10px;
+}
+
+#texto-eslogan{
+    color:white;
+    font-style: italic;
+    margin-top: -16px;
+}
