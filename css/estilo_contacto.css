@@ -7,3 +7,9 @@
 .required-active{
     box-shadow: 0 0 15px 2px rgba(243,25,25,.2) inset;
 }
+p{
+    color: white;
+}
+.error{
+    color: red;
+}

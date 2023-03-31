@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $("#contact-form").validate({
+    $("#form-registro").validate({
       rules: {
         name : {
           required: true,
@@ -9,13 +9,14 @@ $(document).ready(function() {
           required: true,
           email: true
         },
-        subject: {
+        contrasena: {
             required: true,
-            minlength: 3
+            minlength: 8
         },
-        message: {
-            required: true,
-            minlength: 3
+        repetircontrasena: {
+            required: true, 
+            equalTo:contrasena,
+            minlength: 8
         }
       }
     });

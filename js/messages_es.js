@@ -12,7 +12,7 @@ $.extend( $.validator.messages, {
     number: "Por favor, escriba un número válido.",
     digits: "Por favor, escriba sólo dígitos.",
     creditcard: "Por favor, escriba un número de tarjeta válido.",
-    equalTo: "Por favor, escriba el mismo valor de nuevo.",
+    equalTo: "La contraseña no coincide.",
     extension: "Por favor, escriba un valor con una extensión aceptada.",
     maxlength: $.validator.format( "Por favor, no escriba más de {0} caracteres." ),
     minlength: $.validator.format( "Por favor, no escriba menos de {0} caracteres." ),
