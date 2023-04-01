@@ -2,7 +2,10 @@ body{
     background: linear-gradient(rgb(21, 12, 46),rgb(15, 8, 27));
     overflow-x: hidden;
 }
-h1,h2,h3{
+h1,h2,h3,h4,h5,p{
+    color:white;
+}
+label{
     color:white;
 }
 .dropdown-toggle::after{
@@ -71,14 +74,15 @@ h1,h2,h3{
     max-height: 500px;
 }
 
-.carousel-item h1{
-    position: absolute;
-    bottom: 20px;
+
+
+.texto-slide{
+    position:absolute;
+    bottom:20px;
     left: 20px;
-    color: white;
+    font-size: 20px;
     text-shadow: 1px 1px 2px rgb(0, 0, 0);
 }
-
 
 .custom-row {
     margin-left: -5px;
@@ -199,4 +203,17 @@ h1,h2,h3{
     color:white;
     font-style: italic;
     padding-top: 15px;
+}
+
+.error{
+    color:hsl(0, 100%, 65%);
+}
+.required-label{
+    color: #F06767;
+    font-size: .85em;
+    width: 100%;
+    clear: both;
+}
+.required-active{
+    box-shadow: 0 0 15px 2px rgba(243,25,25,.2) inset;
 }
