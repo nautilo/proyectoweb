@@ -8,6 +8,7 @@ h1,h2,h3,h4,h5,p{
 label{
     color:white;
 }
+
 .dropdown-toggle::after{
     display:none;
 }
@@ -152,15 +153,6 @@ label{
     display: none;
 }
 
-@media screen and (max-width:767px) {
-    #circulo-info-extra{
-        visibility: hidden;
-    }
-    #info-extra-movil{
-        display: flex;
-        margin-top: 40px;
-    }
-}
 #tipos-de-perfil h1{
     color:white;
     font-size: 36px;
@@ -210,4 +202,17 @@ label{
 }
 .required-active{
     box-shadow: 0 0 15px 2px rgba(243,25,25,.2) inset;
+}
+
+@media screen and (max-width:767px) {
+    .logo{
+        width: 90%;
+    }
+    #circulo-info-extra{
+        visibility: hidden;
+    }
+    #info-extra-movil{
+        display: flex;
+        margin-top: 40px;
+    }
 }
