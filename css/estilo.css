@@ -22,6 +22,10 @@ label{
 .nav-link:hover{
     color:hsl(0, 0%, 100%);
 }
+
+.navbar-brand{
+    margin-right: 0px;
+}
 .banner-seccion{
     background-color: hsl(0, 100%, 65%);
     color:black;
