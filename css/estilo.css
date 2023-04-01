@@ -205,14 +205,20 @@ label{
 }
 
 @media screen and (max-width:767px) {
-    .logo{
-        width: 90%;
-    }
+
     #circulo-info-extra{
         visibility: hidden;
     }
     #info-extra-movil{
         display: flex;
         margin-top: 40px;
+    }
+}
+@media screen and (max-width:413px){
+    .navbar-brand {
+        width: 70%;
+    }
+    .navbar-brand img{
+        width: 100%;
     }
 }
