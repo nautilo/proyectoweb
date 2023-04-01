@@ -194,11 +194,6 @@ label{
     flex-direction: column;
     justify-content: center;
 }
-#texto-eslogan{
-    color:white;
-    font-style: italic;
-    padding-top: 15px;
-}
 
 .error{
     color:hsl(0, 100%, 65%);
