@@ -7,4 +7,3 @@ function parallax(event) {
     document.getElementById("info-perfil-artista").style.transform = `translateX(${x}px) translateY(${y}px)`;  
 }
 
-jQuery.noConflict();jQuery(document).ready(function(){jQuery('#spoiler1').click(function(){jQuery('.mostrar1').slideToggle("slow");});});

@@ -6,11 +6,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+  <!-- JQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  <!-- Jquery Validate  vía CDN  -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.min.js"></script>
+
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/estilo.css">
-    <link rel="stylesheet" href="../css/estilo_explorar.css">
+
+  <!-- Estilos locales -->
+  <link rel="stylesheet" href="../css/estilo.css">
+  <link rel="stylesheet" href="../css/estilo_explorar.css">
   <title>Malicia Tickets</title>
 </head>
 
@@ -62,10 +71,11 @@
                       <input type="text" name="name" id="name" class="form-control required" placeholder="Nombre">
                     </div>
                     <div class="form-group">
-                      <input type="email" name="email" id="email" class="form-control required" placeholder="Email">
+                      <input type="email" name="email" id="email-registro" class="form-control required"
+                        placeholder="Email">
                     </div>
                     <div class="form-group">
-                      <input type="password" name="contrasena" id="contrasena" class="form-control required"
+                      <input type="password" name="contrasena" id="contrasena-registro" class="form-control required"
                         placeholder="Contraseña">
                     </div>
                     <div class="form-group">
@@ -96,10 +106,11 @@
                   <!-- Lo que va adentro del Popup de login -->
                   <form id="form-login">
                     <div class="form-group">
-                      <input type="email" name="email" id="email" class="form-control required" placeholder="Email">
+                      <input type="email" name="email" id="email-login" class="form-control required"
+                        placeholder="Email">
                     </div>
                     <div class="form-group">
-                      <input type="password" name="contrasena" id="contrasena" class="form-control required"
+                      <input type="password" name="contrasena" id="contrasena-login" class="form-control required"
                         placeholder="Contraseña">
                     </div>
                   </form>
@@ -112,23 +123,11 @@
             </div>
           </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
       </nav>
     </header>
     <h1>Estos son los últimos eventos más populares</h1>
     <div class="banner-seccion">
-        <h3>Semana del 27 de marzo al 2 de abril</h3>
+      <h3>Semana del 27 de marzo al 2 de abril</h3>
     </div>
     <div class="table-responsive">
       <table class="table table-bordered">
@@ -166,7 +165,7 @@
               <p>Subtitle 5</p>
             </td>
             <td style="background-image:url('../img/noticias/flyer-detonando-millantu-vol6.jpg')">
-                <div class="overlay"></div>
+              <div class="overlay"></div>
               <h3 class="numero-dia">1</h3>
               <p class="parrafo-dia">Detonando Millantú<br> Vol. 6</p>
             </td>
@@ -175,12 +174,11 @@
               <p>Subtitle 7</p>
             </td>
           </tr>
-          
         </tbody>
       </table>
     </div>
     <div class="banner-seccion">
-        <h3>Semana del 20 al 26 de marzo</h3>
+      <h3>Semana del 20 al 26 de marzo</h3>
     </div>
     <div class="table-responsive">
       <table class="table table-bordered">
@@ -219,7 +217,7 @@
               <p class="parrafo-dia">Una obra<br>sobre árboles</p>
             </td>
             <td style="background-image:url('../img/noticias/flyer-20-ene.jpg')">
-                <div class="overlay"></div>
+              <div class="overlay"></div>
               <h3 class="numero-dia">25</h3>
               <p class="parrafo-dia">Espacio cultural<br>La Juguera</p>
             </td>
@@ -228,12 +226,11 @@
               <p>Subtitle 7</p>
             </td>
           </tr>
-          
         </tbody>
       </table>
     </div>
     <div class="banner-seccion">
-        <h3>Semana del 13 al 19 de marzo</h3>
+      <h3>Semana del 13 al 19 de marzo</h3>
     </div>
     <div class="table-responsive">
       <table class="table table-bordered">
@@ -271,7 +268,7 @@
               <p>Subtitle 5</p>
             </td>
             <td style="background-image:url('../img/noticias/betsons.jpg')">
-                <div class="overlay"></div>
+              <div class="overlay"></div>
               <h3 class="numero-dia">18</h3>
               <p class="parrafo-dia">Los Betssons<br>En vivo</p>
             </td>
@@ -280,51 +277,53 @@
               <p>Subtitle 7</p>
             </td>
           </tr>
-          
+
         </tbody>
       </table>
     </div>
     <div class="row justify-content-center">
-    <button type="button" class="btn btn-primary">Ver más</button>
-</div>
-<footer class="py-5">
-  <div class="row justify-content-center border-top">
-
-
-    <div class="col-lg-6 col-md-10 col-sm-12">
-      <form id="form-suscripcion">
-        <br>
-        <h5>Suscríbete y recibe los últimos eventos en tu correo.</h5>
-        <p>Te enviamos noticias, descuentos y recomendaciones mensualmente.</p>
-        <div class="d-flex w-100 gap-2">
-          <input id="newsletter" name="email" type="text" class="form-control" placeholder="Email">
-          <button class="btn btn-primary" type="button">Suscribirse</button>
-        </div>
-        <br>
-      </form>
+      <button type="button" class="btn btn-primary">Ver más</button>
     </div>
+    <footer class="py-5">
+      <div class="row justify-content-center border-top">
+
+
+        <div class="col-lg-6 col-md-10 col-sm-12">
+          <form id="form-suscripcion">
+            <br>
+            <h5>Suscríbete y recibe los últimos eventos en tu correo.</h5>
+            <p>Te enviamos noticias, descuentos y recomendaciones mensualmente.</p>
+            <div class="d-flex w-100 gap-2">
+              <input id="newsletter" name="email" type="text" class="form-control" placeholder="Email">
+              <button class="btn btn-primary" type="button">Suscribirse</button>
+            </div>
+            <br>
+          </form>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-center py-4 my-4 border-top">
+        <p>© 2023 Malicia Technologies, Inc. All rights reserved.</p>
+
+      </div>
+    </footer>
   </div>
 
-  <div class="d-flex justify-content-center py-4 my-4 border-top">
-    <p>© 2023 Malicia Technologies, Inc. All rights reserved.</p>
-    
-  </div>
-</footer>
-</div>
-           
 
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
+  <!-- Popper.js, Bootstrap JS -->
+
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
     integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
-  <script src="../js/scripts.js"></script>
+
+  <!-- Scripts locales -->
+  <script src="../js/validar_registro.js"></script>
+  <script src="../js/validar_login.js"></script>
+  <script src="../js/validar_suscripcion.js"></script>
+  <script src="../js/messages_es.js"></script>
 </body>
 
 </html>
