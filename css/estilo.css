@@ -281,4 +281,7 @@ label{
     min-height: 100%;
     cursor: pointer;
 }
+.table-striped{
+    color:white;
+}
 

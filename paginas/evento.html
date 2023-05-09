@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="../css/estilo.css">
 
 
-  <title>Ejemplo JQuery Validate</title>
+  <title>Detonando Millantú Vol. 6 - Malicia tickets</title>
 </head>
 
 <body>
@@ -136,7 +136,58 @@
         </div>
       </nav>
     </header>
-
+    <div class="container">
+      <div class="row">
+          <div class="col-md-6">
+              <img src="../img/noticias/flyer-detonando-millantu-vol6.jpg" alt="Festival de música" class="img-fluid">
+          </div>
+          <div class="col-md-6">
+              <h1>Detonando Millantú Vol. 6</h1>
+              <p><strong>Fecha y hora:</strong> Sábado 1 de Abril, a las 21:00 Hrs</p>
+              <p><strong>Ubicación:</strong> Avenida Ambrosio O'higgins #2094 Restaurant Millantú</p>
+              <p><strong>Entrada:</strong> 1x$3000 2x$5000 ¡No te lo pierdas!</p>
+              <form method="POST" id="formPagar">
+                <div class="form-group">
+                    <label for="cantidad">Cantidad:</label>
+                    <input type="text" class="form-control" id="txtCantidad" name="txtCantidad">
+                </div>
+                <button id="btnPagar" type="submit" class="btn btn-primary">Pagar</button>
+            </form>
+              <br>
+              <h2>Lineup</h2>
+              <table class="table table-striped">
+                  <thead>
+                  <tr>
+                      <th>Banda</th>
+                      <th>Género</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                      <td>@sserrite</td>
+                      <td>Pop</td>
+                  </tr>
+                  <tr>
+                      <td>@ironicos.banda</td>
+                      <td>Rock</td>
+                  </tr>
+                  <tr>
+                      <td>@gaianemusica</td>
+                      <td>Electrónica</td>
+                  </tr>
+                  <tr>
+                      <td>@asi.me.dicen</td>
+                      <td>Rap</td>
+                  </tr>
+                  <tr>
+                      <td>@cry.pops</td>
+                      <td>Indie</td>
+                  </tr>
+                  </tbody>
+              </table>
+          </div>
+      </div>
+  </div>
     <footer class="py-5">
       <div class="row justify-content-center border-top">
 
@@ -177,6 +228,7 @@
   <script src="../js/validar_suscripcion.js"></script>
   <script src="../js/validar_contacto.js"></script>
   <script src="../js/messages_es.js"></script>
+  <script src="../js/validar_cantidad.js"></script>
 </body>
 
 </html>
