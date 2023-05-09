@@ -87,7 +87,7 @@ label{
 }
 
 .carousel-item{
-    max-height: 500px;
+    max-height: 350px;
 }
 
 
@@ -223,7 +223,9 @@ label{
 .resultados{
     justify-content: center;
 }
-
+.mes{
+    margin-top: 30px;
+}
 
 @media screen and (max-width:767px) {
 
