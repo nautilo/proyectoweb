@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <!-- JQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  <!-- Jquery Validate  vía CDN  -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.min.js"></script>
+
+  <!-- Estilos Locales  -->
+  <link rel="stylesheet" href="../css/estilo.css">
+
+
+  <title>Mi perfil</title>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark bg-black">
+        <a class="navbar-brand" href="../index.html"><img src="../img/logo.png" alt="Logo Malicia Tickets"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04"
+          aria-controls="navbarsExample04" aria-expanded="true" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="navbar-collapse collapse" id="navbarsExample04">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../paginas/explorar.html">Explorar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../paginas/acerca-de.html">Acerca de</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../paginas/contacto.html">Contacto</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="paginas/Perfil.html">Mi perfil</a>
+            </li>
+            <li class="nav-item">
+          </ul>
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-outline-primary me-2" data-toggle="modal"
+            data-target="#modalLogin">Iniciar sesión</button>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalRegistro">
+            Registrarse
+          </button>
+
+          <!-- Modal Registro -->
+          <div class="modal fade" id="modalRegistro" tabindex="-1" role="dialog" aria-labelledby="modalRegistroLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h6 class="modal-title" id="modalRegistroLabel">Registro</h6>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <!-- Lo que va adentro del Popup de registro -->
+                  <form id="form-registro">
+                    <div class="form-group">
+                      <input type="text" name="name" id="name-registro" class="form-control required"
+                        placeholder="Nombre">
+                    </div>
+                    <div class="form-group">
+                      <input type="radio" id="productora" name="tipo_cuenta" value="Productor/a" checked>
+                      <label for="productora">Productor/a</label>
+                      <input type="radio" id="artista" name="tipo_cuenta" value="Artista">
+                      <label for="artista">Artista</label>
+                    </div>
+                    <div class="form-group">
+                      <input type="email" name="email" id="email-registro" class="form-control required"
+                        placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                      <input type="password" name="contrasena" id="contrasena" class="form-control required"
+                        placeholder="Contraseña">
+                    </div>
+                    <div class="form-group">
+                      <input type="password" name="repetircontrasena" id="repetircontrasena"
+                        class="form-control required" placeholder="Repetir contraseña">
+                    </div>
+                  </form>
+
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary">Registrarse</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Modal Login -->
+          <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="modalLoginLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h6 class="modal-title" id="modalLoginLabel">Iniciar sesión</h6>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <!-- Lo que va adentro del Popup de login -->
+                  <form id="form-login">
+                    <div class="form-group">
+                      <input type="email" name="email" id="email-login" class="form-control required"
+                        placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                      <input type="password" name="contrasena" id="contrasena-login" class="form-control required"
+                        placeholder="Contraseña">
+                    </div>
+                  </form>
+
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary">Iniciar sesión</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      
+    </header>
+    <!-- Agregamos la foto de perfil del artista en el encabezado -->
+    <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <img src="data:image/jpeg;base64,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" class="img-fluid rounded-circle" alt="Foto de perfil del artista">
+          </div>
+          <div class="col-md-9">
+            <h1>Felipe Avello</h1>
+            <p>Felipe Alejandro Avello Suazo es un periodista y comediante chileno que ha incursionado en radio, televisión, prensa escrita, teatro, cine y música. Se hizo conocido principalmente por su participación en el programa de televisión SQP del canal Chilevisión, del cual fue panelista durante casi una década.</p>
+          </div>
+        </div>
+      </div>
+       <!-- Agregamos la sección de perfil del artista -->
+  <div class="container my-5">
+    <section class="row">
+      <div class="col-md-4">
+        <h2>Información del Artista</h2>
+        <p>Nacimiento: 24 de mayo de 1974 (edad 48 años), Concepción</p>
+        <p>   Cónyuge: Ximena Wiesenfeld Labbé (m. 2011)</p>
+        <p>    Hermanos: Reinaldo Avello Suazo, José Antonio Avello Suazo</p>
+        <p>    Apodo: Pececillo​</p>
+        <p>Instrumento: Voz</p>
+        <p>Medio: Los 40 (Chile)</p>
+      </div>
+      <div class="col-md-8">
+        <h2>Próximos Eventos</h2>
+
+                <h5 class="card-title">Nombre del Evento</h5>
+                <p class="card-text">Descripción del evento aquí</p>
+                <p class="card-text"><small class="text-muted">Fecha y hora del evento aquí</small></p>
+              </div>
+            </div>
+          </div>
+          <!-- Agregar más eventos futuros aquí -->
+        </div>
+        <h2>Conciertos Pasados</h2>
+        <ul class="list-group">
+          <li class="list-group-item">Concierto pasado 1</li>
+          <li class="list-group-item">Concierto pasado 2</li>
+          <!-- Agregar más conciertos pasados aquí -->
+        </ul>
+      </div>
+    </section>
+  </div>
+
+
+    <footer class="py-5">
+      <div class="row justify-content-center border-top">
+
+
+        <div class="col-lg-6 col-md-10 col-sm-12">
+          <form id="form-suscripcion">
+            <br>
+            <h5>Suscríbete y recibe los últimos eventos en tu correo.</h5>
+            <p>Te enviamos noticias, descuentos y recomendaciones mensualmente.</p>
+            <div class="d-flex w-100 gap-2">
+              <input id="newsletter" name="email" type="text" class="form-control" placeholder="Email">
+              <button class="btn btn-primary" type="button">Suscribirse</button>
+            </div>
+            <br>
+          </form>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-center py-4 my-4 border-top">
+        <p>© 2023 Malicia Technologies, Inc. All rights reserved.</p>
+
+      </div>
+    </footer>
+  </div>
+
+  <!-- Popper.js, Bootstrap JS -->
+
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+  <!-- Scripts locales -->
+  <script src="../js/validar_registro.js"></script>
+  <script src="../js/validar_login.js"></script>
+  <script src="../js/validar_suscripcion.js"></script>
+  <script src="../js/validar_contacto.js"></script>
+  <script src="../js/messages_es.js"></script>
+</body>
+
+</html>
