@@ -138,56 +138,60 @@
     </header>
     <div class="container">
       <div class="row">
-          <div class="col-md-6">
-              <img src="../img/noticias/flyer-detonando-millantu-vol6.jpg" alt="Festival de música" class="img-fluid">
-          </div>
-          <div class="col-md-6">
-              <h1>Detonando Millantú Vol. 6</h1>
-              <p><strong>Fecha y hora:</strong> Sábado 1 de Abril, a las 21:00 Hrs</p>
-              <p><strong>Ubicación:</strong> Avenida Ambrosio O'higgins #2094 Restaurant Millantú</p>
-              <p><strong>Entrada:</strong> 1x$3000 2x$5000 ¡No te lo pierdas!</p>
-              <form method="POST" id="formPagar">
-                <div class="form-group">
-                    <label for="cantidad">Cantidad:</label>
-                    <input type="text" class="form-control" id="txtCantidad" name="txtCantidad">
-                </div>
-                <button id="btnPagar" type="submit" class="btn btn-primary">Pagar</button>
-            </form>
-              <br>
-              <h2>Lineup</h2>
-              <table class="table table-striped">
-                  <thead>
-                  <tr>
-                      <th>Banda</th>
-                      <th>Género</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                      <td>@sserrite</td>
-                      <td>Pop</td>
-                  </tr>
-                  <tr>
-                      <td>@ironicos.banda</td>
-                      <td>Rock</td>
-                  </tr>
-                  <tr>
-                      <td>@gaianemusica</td>
-                      <td>Electrónica</td>
-                  </tr>
-                  <tr>
-                      <td>@asi.me.dicen</td>
-                      <td>Rap</td>
-                  </tr>
-                  <tr>
-                      <td>@cry.pops</td>
-                      <td>Indie</td>
-                  </tr>
-                  </tbody>
-              </table>
-          </div>
+        <div class="col-md-6">
+          <img src="../img/noticias/flyer-detonando-millantu-vol6.jpg" alt="Festival de música" class="img-fluid">
+        </div>
+        <div class="col-md-6">
+          <h1>Detonando Millantú Vol. 6</h1>
+          <p><strong>Fecha y hora:</strong> Sábado 1 de Abril, a las 21:00 Hrs</p>
+          <p><strong>Ubicación:</strong> Avenida Ambrosio O'higgins #2094 Restaurant Millantú</p>
+          <p><strong>Entrada:</strong> 1x$3000 2x$5000 ¡No te lo pierdas!</p>
+          <form id="formPagar">
+            <label for="name">Cantidad:</label>
+            <input type="number" min=1 max=500 id="cantidadentradas" name="cantidadentradas" value="1">
+            <h4>Subtotal:</h4>
+            <h4 id="subtotal">$3000</h4>
+            <h4>Dcto. Promoción 2x5mil:</h4>
+            <h4 id="descuento">$0</h4>
+            <h3>Total:</h3>
+            <h3 id="total">$3000</h3>
+            <input class="btn btn-primary" id="btnPagar" type="submit" value="Pagar" form="formPagar">
+          </form>
+          <br>
+          <h2>Lineup</h2>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Banda</th>
+                <th>Género</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>@sserrite</td>
+                <td>Pop</td>
+              </tr>
+              <tr>
+                <td>@ironicos.banda</td>
+                <td>Rock</td>
+              </tr>
+              <tr>
+                <td>@gaianemusica</td>
+                <td>Electrónica</td>
+              </tr>
+              <tr>
+                <td>@asi.me.dicen</td>
+                <td>Rap</td>
+              </tr>
+              <tr>
+                <td>@cry.pops</td>
+                <td>Indie</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-  </div>
+    </div>
     <footer class="py-5">
       <div class="row justify-content-center border-top">
 
