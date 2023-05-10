@@ -55,7 +55,7 @@ $(document).ready(function() {
 
     tbody_siguiente.append(tr);
   }
-  const urlMesActual = "https://serpapi.com/search.json?engine=google_events&q=Eventos+en+Chile&htichips=date:month&hl=es&gl=cl&api_key=4f3fb89abbb1230ce9cd4bed2c80d7e2564964382dbf5a894a07da59e2e5405f";
+  const urlMesActual = "https://serpapi.com/search.json?engine=google_events&q=Eventos+en+Chile&htichips=date:month&hl=es&gl=cl&api_key=f318ac3c2aadbd5f8ff5f2a66ad0ee079e5e9eb0b40fa88dd33b6dec5647b687";
   const proxyUrlMesActual = "https://api.allorigins.win/get?url=" + encodeURIComponent(urlMesActual);
           // allorigins.win permite usar headers que son protegidos por el servidor de la API mediante un proxy
           // en este caso se incluyó el header "api_key" en la url.
@@ -74,7 +74,7 @@ $(document).ready(function() {
       });
 
     });
-  const urlMesSiguiente = "https://serpapi.com/search.json?engine=google_events&q=Eventos+en+Chile&htichips=date:next_month&hl=es&gl=cl&api_key=4f3fb89abbb1230ce9cd4bed2c80d7e2564964382dbf5a894a07da59e2e5405f";
+  const urlMesSiguiente = "https://serpapi.com/search.json?engine=google_events&q=Eventos+en+Chile&htichips=date:next_month&hl=es&gl=cl&api_key=f318ac3c2aadbd5f8ff5f2a66ad0ee079e5e9eb0b40fa88dd33b6dec5647b687";
   const proxyUrlMesSiguiente = "https://api.allorigins.win/get?url=" + encodeURIComponent(urlMesSiguiente);
           // allorigins.win permite usar headers que son protegidos por el servidor de la API mediante un proxy
           // en este caso se incluyó el header "api_key" en la url.

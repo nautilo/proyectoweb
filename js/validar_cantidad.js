@@ -12,6 +12,11 @@ function calcularTotal(event){
         total=5000*(cantidadEntradas-1)/2 + 3000;
     }
     var descuento = subtotal-total;
+    if(cantidadEntradas<1){
+      subtotal=0;
+      total=0;
+      descuento=0;
+    }
     document.getElementById("subtotal").innerText = "$"+subtotal.toString();
     document.getElementById("total").innerText = "$"+total.toString();
     if (descuento==0){
@@ -29,7 +34,7 @@ $(document).ready(function () {
 
     $('#formPagar').validate({
       rules: {
-        txtCantidad: {
+        cantidadentradas: {
           required: true,
           positive_integer: true
         }
