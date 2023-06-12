@@ -7,14 +7,12 @@
         <div class="col-12 col-md-6 offset-md-3">
             <div class="card">
                 <div class="card-body bg-white">
-                    <h2 class="text-dark text text-center">Publicar evento</h2>
+                    <h2 class="text-dark text text-center">Publicar un nuevo evento</h2>
                     <hr class="text-dark">
                     <form action="" method="post">
                         {% csrf_token %}
                         {{form | crispy}}
                         <br>
-                        <a href="{% url 'home' %}">Ir al Inicio</a> |
-                        <a href="{% url 'login' %}">Iniciar Sesión</a>
                         <input type="submit" value="Ingresar" class="btn btn-success float-end">
                     </form>
                 </div>
@@ -25,3 +23,4 @@
 
 
 {% endblock %}
+
