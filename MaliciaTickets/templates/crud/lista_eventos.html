@@ -1,28 +1,51 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base.html' %} 
+{% block css %}
+<link rel="stylesheet" href="../static/css/estilo.css">
+{% endblock %}
+{% block content %} 
 {% load crispy_forms_tags %}
-<br><br><br><br><br><br>
+<br /><br /><br /><br /><br /><br />
 <div class="container">
-    <div class="row">
-        <div class="col-12 col-md-6 offset-md-3">
-            <div class="card">
-                <div class="card-body bg-white">
-                    <h2 class="text-dark text text-center">Lista eventos</h2>
-                    <hr class="text-dark">
-                    <form action="" method="post">
-                        {% csrf_token %}
-                        {{form | crispy}}
-                        <br>
-                        {% comment %}<a href="{% url 'home' %}">Ir al Inicio</a> | {% endcomment %}
-                        {% comment %}<a href="{% url 'login' %}">Iniciar Sesión</a>{% endcomment %}
-                        <input type="submit" value="Ingresar" class="btn btn-success float-end">
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+  <h1>Lista de eventos</h1>
+
+  <a href="{% url 'crear_evento' %}">Agregar evento</a>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Código</th>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Imagen</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for evento in eventos %}
+      <tr>
+        <td>{{ evento.id }}</td>
+        <td>{{ evento.nombre }}</td>
+        <td>{{ evento.precio }}</td>
+        <td>
+          <img src= ../../static/img/{{ logo.png }} style="width:
+          100px;"/>
+        </td>
+
+        {% comment %}
+        <td>
+          <img src= ../../static/images/{{ productp.img }} style="width:
+          100px;"/>
+        </td>
+        {% endcomment %}
+
+        <td>
+          <a href="{% url 'editar_evento' evento.id %}">Editar</a>
+          <a href="{% url 'eliminar_evento' evento.id %}">Eliminar</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 </div>
 
-
 {% endblock %}
-

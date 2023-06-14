@@ -1,26 +1,20 @@
 {% extends 'base.html' %}
+{% block css %}
+<link rel="stylesheet" href="../../../static/css/estilo.css">
+{% endblock %}
 {% block content %}
 {% load crispy_forms_tags %}
 <br><br><br><br><br><br>
 <div class="container">
-    <div class="row">
-        <div class="col-12 col-md-6 offset-md-3">
-            <div class="card">
-                <div class="card-body bg-white">
-                    <h2 class="text-dark text text-center">Eliminar evento</h2>
-                    <hr class="text-dark">
-                    <form action="" method="post">
-                        {% csrf_token %}
-                        {{form | crispy}}
-                        <br>
-                        <a href="{% url 'home' %}">Ir al Inicio</a> |
-                        <a href="{% url 'login' %}">Iniciar Sesión</a>
-                        <input type="submit" value="Ingresar" class="btn btn-success float-end">
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+  
+    <h1>Eliminar evento</h1>
+
+    <p>¿Estás seguro de que deseas eliminar el evento "{{ evento.nombre }}"?</p>
+    
+    <form method="post">
+      {% csrf_token %}
+      <button type="submit">Eliminar</button>
+    </form>
 </div>
 
 

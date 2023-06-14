@@ -1,4 +1,7 @@
 {% extends 'base.html' %}
+{% block css %}
+<link rel="stylesheet" href="../../../static/css/estilo.css">
+{% endblock %}
 {% block content %}
 {% load crispy_forms_tags %}
 <br><br><br><br><br><br>
@@ -13,8 +16,8 @@
                         {% csrf_token %}
                         {{form | crispy}}
                         <br>
-                        <a href="{% url 'home' %}">Ir al Inicio</a> |
-                        <a href="{% url 'login' %}">Iniciar Sesión</a>
+                        {%comment%}<a href="{% url '' %}">Ir al Inicio</a> |
+                        <a href="{% url '' %}">Iniciar Sesión</a>{%endcomment%}
                         <input type="submit" value="Ingresar" class="btn btn-success float-end">
                     </form>
                 </div>
