@@ -16,8 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from crud.views import home, logout_view,explorar,acerca_de,contacto
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('evento/',include('crud.urls')),
+    path('', home, name='home'),
+    path('logout/', logout_view, name='logout'),
+    path('explorar/',explorar,name='explorar'),
+    path('acerca_de/',acerca_de,name='acerca_de'),
+    path('contacto/',contacto,name='contacto'),
+    path('perfil/',include('crud.urls')),
+
 ]

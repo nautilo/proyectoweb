@@ -2,15 +2,19 @@ body{
     background: linear-gradient(rgb(21, 12, 46),rgb(15, 8, 27));
     overflow-x: hidden;
 }
+
 h1,h2,h3,h4,h5,p{
     color:white;
 }
-.table td{
+.table td th{
     border-top: 0px;
     border-bottom: rgb(214, 214, 214) solid 1px;
 }
+.table .helptext{
+    font-size: 12px;
+}
 label{
-    color:rgb(184, 184, 184);
+    color:rgb(82, 82, 82);
 }
 
 .dropdown-toggle::after{

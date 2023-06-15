@@ -1,493 +1,221 @@
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+{% extends 'base.html' %}
+{% block css %}
+<link rel="stylesheet" href="../static/css/estilo.css">
+{% endblock %}
+{% block content %}
+<div
+id="carouselExampleIndicators"
+class="carousel slide"
+data-ride="carousel"
+>
+<ol class="carousel-indicators">
+  <li
+    data-target="#carouselExampleIndicators"
+    data-slide-to="0"
+    class="active"
+  ></li>
+  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+  <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+</ol>
+<div class="carousel-inner" role="listbox">
+  <div class="carousel-item active">
+    <div class="texto-slide">
+      <h1>King Gizzard & the Lizard Wizard</h1>
+      <p>La banda australiana nunca vendrá a este país.</p>
+    </div>
+    <img
+      class="d-block w-100"
+      src="../static/img/carrusel-inicio/slide1.jpg"
+      alt="First slide"
     />
-
-    <!-- JQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-    <!-- Jquery Validate  vía CDN  -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.min.js"></script>
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
+  </div>
+  <div class="carousel-item">
+    <div class="texto-slide">
+      <h1>HOMESHAKE</h1>
+      <p>
+        Dará un concierto online por la plataforma Duoc AVA Blackboard,
+        pincha acá para comprar tu pase.
+      </p>
+    </div>
+    <img
+      class="d-block w-100"
+      src="../static/img/carrusel-inicio/slide2.jpg"
+      alt="Second slide"
     />
-    <!-- Estilos locales -->
-    <link rel="stylesheet" href="css/estilo.css" />
-    <title>Malicia Tickets</title>
-  </head>
-
-  <body>
-    <div class="container-fluid">
-      <header>
-        <nav class="navbar navbar-expand-md navbar-dark bg-black">
-          <a class="navbar-brand" href="index.html"
-            ><img src="img/logo.png" alt="Logo Malicia Tickets"
-          /></a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarsExample04"
-            aria-controls="navbarsExample04"
-            aria-expanded="true"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="navbar-collapse collapse" id="navbarsExample04">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="paginas/explorar.html">Explorar</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="paginas/acerca-de.html">Acerca de</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="paginas/contacto.html">Contacto</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="paginas/mi-perfil.html">Mi perfil</a>
-              </li>
-            </ul>
-            <!-- Button trigger modal -->
-            <button
-              type="button"
-              class="btn btn-outline-primary me-2"
-              data-toggle="modal"
-              data-target="#modalLogin"
-            >
-              Iniciar sesión
-            </button>
-            <button
-              type="button"
-              class="btn btn-primary"
-              data-toggle="modal"
-              data-target="#modalRegistro"
-            >
-              Registrarse
-            </button>
-
-            <!-- Modal Registro -->
-            <div
-              class="modal fade"
-              id="modalRegistro"
-              tabindex="-1"
-              role="dialog"
-              aria-labelledby="modalRegistroLabel"
-              aria-hidden="true"
-            >
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h6 class="modal-title" id="modalRegistroLabel">
-                      Registro
-                    </h6>
-                    <button
-                      type="button"
-                      class="close"
-                      data-dismiss="modal"
-                      aria-label="Close"
-                    >
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <!-- Lo que va adentro del Popup de registro -->
-                    <form id="form-registro">
-                      <div class="form-group">
-                        <input
-                          type="text"
-                          name="name"
-                          id="name"
-                          class="form-control required"
-                          placeholder="Nombre"
-                        />
-                      </div>
-                      <div class="form-group">
-                        <input
-                          type="radio"
-                          id="productora"
-                          name="tipo_cuenta"
-                          value="Productor/a"
-                          checked
-                        />
-                        <label for="productora">Productor/a</label>
-                        <input
-                          type="radio"
-                          id="artista"
-                          name="tipo_cuenta"
-                          value="Artista"
-                        />
-                        <label for="artista">Artista</label>
-                      </div>
-                      <div class="form-group">
-                        <input
-                          type="email"
-                          name="email"
-                          id="email-registro"
-                          class="form-control required"
-                          placeholder="Email"
-                        />
-                      </div>
-                      <div class="form-group">
-                        <input
-                          type="password"
-                          name="contrasena"
-                          id="contrasena"
-                          class="form-control required"
-                          placeholder="Contraseña"
-                        />
-                      </div>
-                      <div class="form-group">
-                        <input
-                          type="password"
-                          name="repetircontrasena"
-                          id="repetircontrasena"
-                          class="form-control required"
-                          placeholder="Repetir contraseña"
-                        />
-                      </div>
-                    </form>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">
-                      Registrarse
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Modal Login -->
-            <div
-              class="modal fade"
-              id="modalLogin"
-              tabindex="-1"
-              role="dialog"
-              aria-labelledby="modalLoginLabel"
-              aria-hidden="true"
-            >
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h6 class="modal-title" id="modalLoginLabel">
-                      Iniciar sesión
-                    </h6>
-                    <button
-                      type="button"
-                      class="close"
-                      data-dismiss="modal"
-                      aria-label="Close"
-                    >
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <!-- Lo que va adentro del Popup de login -->
-                    <form id="form-login">
-                      <div class="form-group">
-                        <input
-                          type="email"
-                          name="email"
-                          id="email-login"
-                          class="form-control required"
-                          placeholder="Email"
-                        />
-                      </div>
-                      <div class="form-group">
-                        <input
-                          type="password"
-                          name="contrasena"
-                          id="contrasena-login"
-                          class="form-control required"
-                          placeholder="Contraseña"
-                        />
-                      </div>
-                    </form>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">
-                      Iniciar sesión
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </nav>
-      </header>
-
-      <div
-        id="carouselExampleIndicators"
-        class="carousel slide"
-        data-ride="carousel"
-      >
-        <ol class="carousel-indicators">
-          <li
-            data-target="#carouselExampleIndicators"
-            data-slide-to="0"
-            class="active"
-          ></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-        </ol>
-        <div class="carousel-inner" role="listbox">
-          <div class="carousel-item active">
-            <div class="texto-slide">
-              <h1>King Gizzard & the Lizard Wizard</h1>
-              <p>La banda australiana nunca vendrá a este país.</p>
-            </div>
-            <img
-              class="d-block w-100"
-              src="img/carrusel-inicio/slide1.jpg"
-              alt="First slide"
-            />
-          </div>
-          <div class="carousel-item">
-            <div class="texto-slide">
-              <h1>HOMESHAKE</h1>
-              <p>
-                Dará un concierto online por la plataforma Duoc AVA Blackboard,
-                pincha acá para comprar tu pase.
-              </p>
-            </div>
-            <img
-              class="d-block w-100"
-              src="img/carrusel-inicio/slide2.jpg"
-              alt="Second slide"
-            />
-          </div>
-          <div class="carousel-item">
-            <div class="texto-slide">
-              <h1>BadBadNotGood</h1>
-              <p>
-                Los canadienses alistan su regreso a Chile el próximo 30 de mayo
-                en Teatro Coliseo.
-              </p>
-            </div>
-
-            <img
-              class="d-block w-100"
-              src="img/carrusel-inicio/slide3.jpg"
-              alt="Third slide"
-            />
-          </div>
-          <div class="carousel-item">
-            <div class="texto-slide">
-              <h1>Tame Impala</h1>
-              <p>I heard about a whirlwind that's coming 'round</p>
-            </div>
-            <img
-              class="d-block w-100"
-              src="img/carrusel-inicio/slide4.jpg"
-              alt="Forth slide"
-            />
-          </div>
-          <div class="carousel-item">
-            <div class="texto-slide">
-              <h1>Pond</h1>
-              <p>
-                Aterrizarán en nuestro país con un show fijado para el próximo 5
-                de noviembre en Blondie.
-              </p>
-            </div>
-            <img
-              class="d-block w-100"
-              src="img/carrusel-inicio/slide5.jpg"
-              alt="Fifth slide"
-            />
-          </div>
-        </div>
-        <a
-          class="carousel-control-prev"
-          href="#carouselExampleIndicators"
-          role="button"
-          data-slide="prev"
-        >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Anterior</span>
-        </a>
-        <a
-          class="carousel-control-next"
-          href="#carouselExampleIndicators"
-          role="button"
-          data-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Siguiente</span>
-        </a>
-      </div>
-      <div class="container-fluid busqueda">
-        <form id="formBuscar" name="formBuscar">
-          <h3>Encuentra nuevos eventos</h3>
-          <input
-            type="text"
-            id="txtBuscar"
-            placeholder="Busca por artista, evento o lugar"
-          />
-          <input
-            id="btnBuscar"
-            class="btn btn-primary"
-            type="submit"
-            value="Buscar"
-          />
-        </form>
-        <div class="row resultados">
-          <table id="tbResultados" class="table">
-            <thead style="display:none;">
-              <tr>
-                <th scope="col">Evento</th>
-                <th scope="col">Fecha y hora</th>
-                <th scope="col">Dirección</th>
-                <th scope="col">Ciudad</th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-12 col-md-8">
-          <div class="banner-seccion">
-            <h3>Novedades</h3>
-          </div>
-          <div class="row noticia">
-            <div class="col-md-3 col-sm-5 text-right">
-              <a href="./paginas/evento.html"><img
-                src="img/noticias/flyer-detonando-millantu-vol6.jpg"
-                class="img-fluid"
-                alt="Your Image"
-              /></a>
-            </div>
-            <div class="col-md-9 col-sm-7 texto-noticia">
-              <a href="./paginas/evento.html"><h5>Detonando Millantú Vol. 6</h5></a>
-              <p>
-                Te invitamos a vivir una nueva edición de estas presentaciones
-                en el local Millantú 😁<br />
-
-                LINE UP 📢:<br />
-
-                @sserrite 🎤 @ironicos.banda 🌌 @gaianemusica 🐝 @asi.me.dicen
-                🧢 @cry.pops 💀<br /><br />
-
-                🤨 Fecha y hora: Sábado 1 de Abril, a las 21:00 Hrs<br />
-
-                📍Ubicación: Avenida Ambrosio O'higgins #2094 Restaurant
-                Millantú<br />
-
-                🤑Entrada: 1x$3000 2x$5000 ¡No te lo pierdas!
-              </p>
-            </div>
-          </div>
-          <div class="row noticia">
-            <div class="col-md-3 col-sm-5 text-right">
-              <img
-                src="img/noticias/flyer-pipops-fest.jpg"
-                class="img-fluid"
-                alt="Your Image"
-              />
-            </div>
-            <div class="col-md-9 col-sm-7 texto-noticia">
-              <h5>Pipops Fest 2022</h5>
-              <p>
-                🐸 PIPOPS FEST 19 DE NOVIEMBRE🐊 🌄 ven a disfrutar de nuestro
-                próximo evento completamente GRATIS y al aire libre 🫂 📍19 de
-                Noviembre en el Anfiteatro Natural de la Villa del Sol (Esquina
-                Cuyuncavi/Los Canelos) Curacaví. 🥸 LINE UP 🕺 @zurlindecl
-                @autodefensa @lupers_chile @cry.pops @ironicos.banda
-                @malaraza_banda @mamutbanda @pipe.ignoto @mubastick_banda
-                @sserrite @ka.a.ele.hi @rivercebras @gaianemusica @_gatofantasma
-                NO TE LO PIERDAS 💥💥
-              </p>
-            </div>
-          </div>
-          <button
-            type="button"
-            class="btn btn-primary"
-            style="margin-bottom: 20px"
-          >
-            Cargar más
-          </button>
-        </div>
-        <div class="col-sm-12 col-md-4 text-center">
-          <div class="banner-seccion text-left">
-            <h3>Eventos en tu zona</h3>
-          </div>
-          <div id="mapa" style="overflow: hidden">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d26864.975399997234!2d-71.2146944!3d-32.6828032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2scl!4v1679893708218!5m2!1ses!2scl"
-              width="470"
-              height="450"
-              style="border: 0"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
-        </div>
-      </div>
-      <footer class="py-5">
-        <div class="row justify-content-center border-top">
-          <div class="col-lg-6 col-md-10 col-sm-12">
-            <form id="form-suscripcion">
-              <br />
-              <h5>Suscríbete y recibe los últimos eventos en tu correo.</h5>
-              <p>
-                Te enviamos noticias, descuentos y recomendaciones mensualmente.
-              </p>
-              <div class="d-flex w-100 gap-2">
-                <input
-                  id="newsletter"
-                  name="email"
-                  type="text"
-                  class="form-control"
-                  placeholder="Email"
-                />
-                <button class="btn btn-primary" type="button">
-                  Suscribirse
-                </button>
-              </div>
-              <br />
-            </form>
-          </div>
-        </div>
-
-        <div class="d-flex justify-content-center py-4 my-4 border-top">
-          <p>© 2023 Malicia Technologies, Inc. All rights reserved.</p>
-        </div>
-      </footer>
+  </div>
+  <div class="carousel-item">
+    <div class="texto-slide">
+      <h1>BadBadNotGood</h1>
+      <p>
+        Los canadienses alistan su regreso a Chile el próximo 30 de mayo
+        en Teatro Coliseo.
+      </p>
     </div>
 
-    <!-- Popper.js, Bootstrap JS -->
+    <img
+      class="d-block w-100"
+      src="../static/img/carrusel-inicio/slide3.jpg"
+      alt="Third slide"
+    />
+  </div>
+  <div class="carousel-item">
+    <div class="texto-slide">
+      <h1>Tame Impala</h1>
+      <p>I heard about a whirlwind that's coming 'round</p>
+    </div>
+    <img
+      class="d-block w-100"
+      src="../static/img/carrusel-inicio/slide4.jpg"
+      alt="Forth slide"
+    />
+  </div>
+  <div class="carousel-item">
+    <div class="texto-slide">
+      <h1>Pond</h1>
+      <p>
+        Aterrizarán en nuestro país con un show fijado para el próximo 5
+        de noviembre en Blondie.
+      </p>
+    </div>
+    <img
+      class="d-block w-100"
+      src="../static/img/carrusel-inicio/slide5.jpg"
+      alt="Fifth slide"
+    />
+  </div>
+</div>
+<a
+  class="carousel-control-prev"
+  href="#carouselExampleIndicators"
+  role="button"
+  data-slide="prev"
+>
+  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  <span class="sr-only">Anterior</span>
+</a>
+<a
+  class="carousel-control-next"
+  href="#carouselExampleIndicators"
+  role="button"
+  data-slide="next"
+>
+  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  <span class="sr-only">Siguiente</span>
+</a>
+</div>
+<div class="container-fluid busqueda">
+<form id="formBuscar" name="formBuscar">
+  <h3>Encuentra nuevos eventos</h3>
+  <input
+    type="text"
+    id="txtBuscar"
+    placeholder="Busca por artista, evento o lugar"
+  />
+  <input
+    id="btnBuscar"
+    class="btn btn-primary"
+    type="submit"
+    value="Buscar"
+  />
+</form>
+<div class="row resultados">
+  <table id="tbResultados" class="table">
+    <thead style="display:none;">
+      <tr>
+        <th scope="col">Evento</th>
+        <th scope="col">Fecha y hora</th>
+        <th scope="col">Dirección</th>
+        <th scope="col">Ciudad</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12 col-md-8">
+  <div class="banner-seccion">
+    <h3>Novedades</h3>
+  </div>
+  <div class="row noticia">
+    <div class="col-md-3 col-sm-5 text-right">
+      <a href="./paginas/evento.html"><img
+        src="../static/img/noticias/flyer-detonando-millantu-vol6.jpg"
+        class="img-fluid"
+        alt="Your Image"
+      /></a>
+    </div>
+    <div class="col-md-9 col-sm-7 texto-noticia">
+      <a href="./paginas/evento.html"><h5>Detonando Millantú Vol. 6</h5></a>
+      <p>
+        Te invitamos a vivir una nueva edición de estas presentaciones
+        en el local Millantú 😁<br />
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"
-    ></script>
+        LINE UP 📢:<br />
 
-    <!-- Scripts locales -->
-    <script src="js/validar_registro.js"></script>
-    <script src="js/validar_login.js"></script>
-    <script src="js/validar_suscripcion.js"></script>
-    <script src="js/messages_es.js"></script>
-    <script src="js/buscar_eventos.js"></script>
-  </body>
-</html>
+        @sserrite 🎤 @ironicos.banda 🌌 @gaianemusica 🐝 @asi.me.dicen
+        🧢 @cry.pops 💀<br /><br />
+
+        🤨 Fecha y hora: Sábado 1 de Abril, a las 21:00 Hrs<br />
+
+        📍Ubicación: Avenida Ambrosio O'higgins #2094 Restaurant
+        Millantú<br />
+
+        🤑Entrada: 1x$3000 2x$5000 ¡No te lo pierdas!
+      </p>
+    </div>
+  </div>
+  <div class="row noticia">
+    <div class="col-md-3 col-sm-5 text-right">
+      <img
+        src="../static/img/noticias/flyer-pipops-fest.jpg"
+        class="img-fluid"
+        alt="Your Image"
+      />
+    </div>
+    <div class="col-md-9 col-sm-7 texto-noticia">
+      <h5>Pipops Fest 2022</h5>
+      <p>
+        🐸 PIPOPS FEST 19 DE NOVIEMBRE🐊 🌄 ven a disfrutar de nuestro
+        próximo evento completamente GRATIS y al aire libre 🫂 📍19 de
+        Noviembre en el Anfiteatro Natural de la Villa del Sol (Esquina
+        Cuyuncavi/Los Canelos) Curacaví. 🥸 LINE UP 🕺 @zurlindecl
+        @autodefensa @lupers_chile @cry.pops @ironicos.banda
+        @malaraza_banda @mamutbanda @pipe.ignoto @mubastick_banda
+        @sserrite @ka.a.ele.hi @rivercebras @gaianemusica @_gatofantasma
+        NO TE LO PIERDAS 💥💥
+      </p>
+    </div>
+  </div>
+  <button
+    type="button"
+    class="btn btn-primary"
+    style="margin-bottom: 20px"
+  >
+    Cargar más
+  </button>
+</div>
+<div class="col-sm-12 col-md-4 text-center">
+  <div class="banner-seccion text-left">
+    <h3>Eventos en tu zona</h3>
+  </div>
+  <div id="mapa" style="overflow: hidden">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d26864.975399997234!2d-71.2146944!3d-32.6828032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2scl!4v1679893708218!5m2!1ses!2scl"
+      width="470"
+      height="450"
+      style="border: 0"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+  </div>
+</div>
+</div>
+</div>
+
+
+{% endblock %}
+

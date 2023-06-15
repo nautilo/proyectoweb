@@ -1,0 +1,120 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+<link rel="stylesheet" href="{% static 'css/estilo_explorar.css' %}">
+{% endblock %}
+{% block content %} 
+<div id="circulos-informacion" class="row justify-content-center">
+  <div id="circulo-info-extra" class="row custom-row">
+    <div class="col-md-4">
+      <img src="{% static 'img/info3.png' %}" class="img-fluid" alt="Your Image">
+    </div>
+    <div class="col-md-8 text-left info-ganancias">
+      <h6>Recibe las ganancias en tu cuenta bancaria</h6>
+      <p>Cobramos una comisión de $100 por venta.</p>
+    </div>
+  </div>
+  <div class="col-md-4 columna-circulo">
+    <img src="{% static 'img/info1.png' %}" class="img-fluid" alt="Your Image 1">
+    <h2>Publica un evento</h2>
+    <h5>Regístrate y publica gratis un nuevo evento</h5>
+  </div>
+  <div class="col-md-4 columna-circulo">
+    <img src="{% static 'img/info2.png' %}" class="img-fluid" alt="Your Image 2">
+    <h2>Vende entradas</h2>
+    <h5>Te proporcionamos la plataforma para vender entradas QR.
+      Estas pueden imprimirse o usarse en versión digital.</h5>
+    <div id="info-extra-movil">
+      <div class="col-md-4">
+        <img src="{% static 'img/info3.png' %}" class="img-fluid" alt="Your Image">
+      </div>
+      <div class="col-md-8 text-left info-ganancias">
+        <h6>Recibe las ganancias en tu cuenta bancaria</h6>
+        <p>Cobramos una comisión de $100 por venta.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 columna-circulo">
+    <img src="{% static 'img/info4.png' %}" class="img-fluid" alt="Your Image 3">
+    <h2>Controla el ingreso</h2>
+    <h5>Descarga la App de control y escanea las entradas para verificar su autenticidad.</h5>
+  </div>
+</div>
+
+<div class="banner-seccion">
+  <h1>Para todos los gustos...</h1>
+</div>
+
+<div class="row" id="tipos-de-perfil">
+  <div class="col text-left">
+    <div id="info-perfil-productora" class="img mt-3"
+      style="background-image:url(https://i.blogs.es/7ddff1/alex-bracken-rzulpgwqcue-unsplash/1366_2000.jpg)">
+      <h1>Crea un perfil de productora</h1>
+      <h3 class="text-left desc-perfil-productora">Date a conocer como productor(a) de eventos,<br> publícalos y
+        vende desde tu
+        propio perfil.</h3>
+    </div>
+  </div>
+  <div class="col text-right">
+    <div id="info-perfil-artista" class="img mt-3"
+      style="background-image:url(https://media.istockphoto.com/id/899308580/es/foto/m%C3%BAsicos-en-un-escenario.jpg?s=612x612&w=0&k=20&c=CP-ufmVQYpU3INiyJf7eV8yESThbXrhDi0nlELpGugg=)">
+      <h1>Crea un perfil de artista</h1>
+      <h3 class="text-right desc-perfil-artista">Ya seas solista o parte de una banda,<br> puedes promocionar y
+        vender entradas desde
+        tu perfil de artista.</h3>
+
+    </div>
+  </div>
+</div>
+<div class="container text-center">
+  <h3>Comienza a vender entradas en menos de 5 minutos...</h3>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalRegistro">¡Regístrate
+    ya!</button>
+
+  <!-- Modal Registro -->
+  <div class="modal fade" id="modalRegistro" tabindex="-1" role="dialog" aria-labelledby="modalRegistroLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h6 class="modal-title" id="modalRegistroLabel">Registro</h6>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- Lo que va adentro del Popup de registro -->
+          <form id="form-registro">
+            <div class="form-group">
+              <input type="text" name="name" id="name" class="form-control required" placeholder="Nombre">
+            </div>
+            <div class="form-group">
+              <input type="radio" id="productora" name="tipo_cuenta" value="Productor/a" checked>
+              <label for="productora">Productor/a</label>
+              <input type="radio" id="artista" name="tipo_cuenta" value="Artista">
+              <label for="artista">Artista</label>
+            </div>
+            <div class="form-group">
+              <input type="email" name="email" id="email" class="form-control required" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <input type="password" name="contrasena" id="contrasena" class="form-control required"
+                placeholder="Contraseña">
+            </div>
+            <div class="form-group">
+              <input type="password" name="repetircontrasena" id="repetircontrasena" class="form-control required"
+                placeholder="Repetir contraseña">
+            </div>
+          </form>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Registrarse</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+{% endblock %}
