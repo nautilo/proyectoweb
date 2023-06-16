@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from crud.views import home, logout_view,explorar,acerca_de,contacto
+from crud.views import home, logout_view,explorar,acerca_de,contacto,editar_perfil
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,5 +26,6 @@ urlpatterns = [
     path('acerca_de/',acerca_de,name='acerca_de'),
     path('contacto/',contacto,name='contacto'),
     path('perfil/',include('crud.urls')),
+    path('editar_perfil/',editar_perfil,name='editar_perfil'),
 
 ]

@@ -89,9 +89,11 @@
                 <div class="modal-body">
                   <!-- Lo que va adentro del Popup de registro -->
                   <form id="form_registro" method="POST" >
+                    {% load crispy_forms_tags %}
+
                     {% csrf_token %}
                     <table class="table">
-                      {{ form_registro.as_table }}
+                      {{ form_registro|crispy }}
                     </table>
                   </form>
                 </div>
@@ -164,18 +166,17 @@
       crossorigin="anonymous"></script>
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
     {% if messages %}
-        {% for m in messages %}
-            <script>
-                Swal.fire({
-                    "title":"{{m.title|safe}}",
-                    "text":"{{m.message|safe}}",
-                    "icon":"success"
-                })
-            </script>
-        {% endfor %}
-    {% endif %}
+    {% for m in messages %}
+      <script>
+        Swal.fire({
+          title: "{{ m.tags }}",
+          text: "{{ m }}",
+          icon: "{{ m.tags }}"
+        });
+      </script>
+    {% endfor %}
+  {% endif %}
 
     <!-- Scripts locales -->
     <script src="{% static 'js/scripts.js' %}"></script>
