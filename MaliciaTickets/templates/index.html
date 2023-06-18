@@ -1,7 +1,5 @@
 {% extends 'base.html' %}
-{% block css %}
-<link rel="stylesheet" href="../static/css/estilo.css">
-{% endblock %}
+{% load static %}
 {% block content %}
 <div
 id="carouselExampleIndicators"
@@ -106,33 +104,51 @@ data-ride="carousel"
 </a>
 </div>
 <div class="container-fluid busqueda">
-<form id="formBuscar" name="formBuscar">
-  <h3>Encuentra nuevos eventos</h3>
-  <input
-    type="text"
-    id="txtBuscar"
-    placeholder="Busca por artista, evento o lugar"
-  />
-  <input
-    id="btnBuscar"
-    class="btn btn-primary"
-    type="submit"
-    value="Buscar"
-  />
-</form>
-<div class="row resultados">
-  <table id="tbResultados" class="table">
-    <thead style="display:none;">
-      <tr>
-        <th scope="col">Evento</th>
-        <th scope="col">Fecha y hora</th>
-        <th scope="col">Dirección</th>
-        <th scope="col">Ciudad</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-</div>
+  <form id="formBuscar" name="formBuscar" action="{% url 'buscar_eventos' %}" method="GET">
+    {% csrf_token %}
+    <h3>Encuentra nuevos eventos</h3>
+    <input
+      type="text"
+      id="txtBuscar"
+      name="txtBuscar"
+      placeholder="Busca por artista, evento o lugar"
+    />
+    <input
+      id="btnBuscar"
+      class="btn btn-primary"
+      type="submit"
+      value="Buscar"
+    />
+  </form>
+  <div class="row resultados">
+    {% if eventos %}
+      <table id="tbResultados" class="table">
+        <thead>
+          <tr>
+            <th scope="col">Evento</th>
+            <th scope="col">Fecha y hora</th>
+            <th scope="col">Ubicación</th>
+            <th scope="col">Usuario</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for evento in eventos %}
+          <tr>
+            <td>
+            <a href="{% url 'evento' id=evento.id %}"><img class="miniatura_resultado" src="{{ evento.imagen.url }}">{{ evento.nombre }}</a></td>
+            <td>{{ evento.fecha }} {{ evento.hora }}</td>
+            <td>{{ evento.lugar }}</td>
+            <td><a href="/perfil/{{ evento.user_id }}">{{ evento.user_id }}</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      {% if texto_busqueda %}
+        <p>No se encontraron resultados.</p>
+      {% endif %}
+    {% endif %}
+  </div>
 </div>
 <div class="row">
 <div class="col-sm-12 col-md-8">

@@ -1,0 +1,57 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+<link rel="stylesheet" href="{% static 'css/estilo_explorar.css' %}">
+{% endblock %}
+{% block content %} 
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      {% if evento.imagen %}
+      <img class="img-fluid" src="{{ evento.imagen.url }}" alt="Imagen del evento">
+    {% else %}
+      <img class="img-fluid" src="{% static 'img/eventos/default.png' %}" alt="Imagen por defecto">
+    {% endif %}
+    </div>
+    <div class="col-md-6">
+      {% if evento.user_id == request.user.username %}
+      <a href="{% url 'editar_evento' id=evento.id %}">Editar evento</a>
+      {% endif %}
+      <h1>{{ evento.nombre }}</h1>
+      <p><strong>Creado por:</strong> @{{ evento.user_id }}</p>
+      <p><strong>Fecha:</strong> {{ evento.fecha }}</p>
+      <p><strong>Hora:</strong> {{ evento.hora }}</p>
+      <p><strong>Ubicación:</strong> {{ evento.lugar }}</p>
+      <p><strong>Entrada:</strong> ${{ evento.precio }}</p>
+      <p><strong>Entradas disponibles:</strong> {{ evento.entradas_disponibles }}</p>
+      <form id="formPagar">
+        <label for="name">Cantidad:</label>
+        <input type="number" min=1 max=500 id="cantidadentradas" name="cantidadentradas" value="1">
+        <h3>Total:</h3>
+        <h3 id="total">${{evento.precio}}</h3>
+        <input class="btn btn-primary" id="btnPagar" type="submit" value="Pagar" form="formPagar">
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block js %}
+<script src="{% static 'js/validar_cantidad.js' %}"></script>
+<script>
+const precioUnitario = "{{ evento.precio }}";
+document.getElementById("cantidadentradas").addEventListener("change", calcularTotal);
+
+function calcularTotal(event){
+    var total = precioUnitario;
+    var cantidadEntradas = document.getElementById("cantidadentradas").value;
+    
+    total = precioUnitario * cantidadEntradas;
+  
+    if(cantidadEntradas < 1){
+        total = 0;
+    }
+    document.getElementById("total").innerText = "$" + total.toString();
+}
+</script>
+{% endblock %}

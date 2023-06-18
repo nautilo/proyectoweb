@@ -1,7 +1,4 @@
 {% extends 'base.html' %}
-{% block css %}
-<link rel="stylesheet" href="../../../static/css/estilo.css">
-{% endblock %}
 {% block content %}
 {% load crispy_forms_tags %}
 <br><br><br><br><br><br>
@@ -12,7 +9,7 @@
                 <div class="card-body bg-white">
                     <h2 class="text-dark text text-center">Editar evento</h2>
                     <hr class="text-dark">
-                    <form action="" method="post">
+                    <form method="post" enctype="multipart/form-data">
                         {% csrf_token %}
                         {{form | crispy}}
                         <br>

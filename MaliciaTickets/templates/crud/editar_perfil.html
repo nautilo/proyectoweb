@@ -1,55 +1,20 @@
 {% extends 'base.html' %}
-
-{% block css %}
-<link rel="stylesheet" href="../static/css/estilo.css">
-{% endblock %}
-
 {% block content %}
+{% load crispy_forms_tags %}
 
-<br /><br /><br /><br /><br /><br />
 <div class="container">
   {% if user.is_authenticated %}
   <form id="u_form" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     <table class="table">
-      {{ form.as_table }}
+      {{ form|crispy }}
     </table>
     <button type="submit" class="btn btn-primary">Guardar cambios</button>
   </form>
   {% endif %}
 
-  <div class="row">
-    <div class="col-md-3">
-      <img src="../img/felipe-avello.jpg" class="img-fluid rounded-circle" alt="Foto de perfil del artista">
-    </div>
-    <div class="col-md-9">
-      <h1>Felipe Avello</h1>
-      <p>Felipe Alejandro Avello Suazo es un periodista y comediante chileno que ha incursionado en radio, televisión, prensa escrita, teatro, cine y música. Se hizo conocido principalmente por su participación en el programa de televisión SQP del canal Chilevisión, del cual fue panelista durante casi una década.</p>
-    </div>
-  </div>
-</div>
 
-<div class="container my-5">
-  <section class="row">
-    <div class="col-md-4">
-      <h2>Información del Artista</h2>
-      <p>Nacimiento: 24 de mayo de 1974 (edad 48 años), Concepción</p>
-      <p>Cónyuge: Ximena Wiesenfeld Labbé (m. 2011)</p>
-      <p>Hermanos: Reinaldo Avello Suazo, José Antonio Avello Suazo</p>
-      <p>Apodo: Pececillo​</p>
-      <p>Instrumento: Voz</p>
-      <p>Medio: Los 40 (Chile)</p>
-    </div>
-    <div class="col-md-8">
-      <h2>Próximos Eventos</h2>
-      <h5 class="card-title">Nombre del Evento</h5>
-      <p class="card-text">Descripción del evento aquí</p>
-      <p class="card-text"><small class="text-muted">Fecha y hora del evento aquí</small></p>
-    </div>
-  </section>
-</div>
-
-<div class="container">
+<hr>
   <h1>Tus eventos</h1>
   <a href="{% url 'crear_evento' %}" class="btn btn-active">Agregar evento</a>
   <hr>

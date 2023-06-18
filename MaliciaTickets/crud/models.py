@@ -1,9 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.db.models.signals import post_save
-from django.dispatch import receiver
-
-
 class Evento(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, to_field='username',null=True)
     nombre = models.CharField(max_length=50)
@@ -13,10 +9,11 @@ class Evento(models.Model):
     precio = models.IntegerField()
     entradas_disponibles = models.IntegerField()
     descripcion = models.TextField(blank=True,null=True)
-    imagen = models.ImageField(upload_to="eventos",null=True)
+    imagen = models.ImageField(upload_to='static/img/eventos/', blank=True, default='static/img/eventos/default.png')
     
     def __str__(self):
-        return self.name
+        return self.nombre
+
 
 class Perfil(models.Model):
     OPCIONES_TIPO_USUARIO = [
@@ -24,15 +21,11 @@ class Perfil(models.Model):
         ('2', 'Artista'),
     ]
 
-    usuario = models.OneToOneField(User, on_delete=models.CASCADE)
-    biografia = models.CharField(max_length=1000, blank=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='perfil')
+    first_name = models.CharField(max_length=30, blank=True)
+    biografia = models.TextField(blank=True)
     tipo_perfil = models.CharField(max_length=1, choices=OPCIONES_TIPO_USUARIO)
-    imagen_perfil = models.ImageField(upload_to='perfiles', blank=True)
+    imagen_perfil = models.ImageField(upload_to='static/img/perfiles', blank=True, default='static/img/perfiles/default.png')
 
     def __str__(self):
-        return self.usuario.username
-
-@receiver(post_save, sender=User)
-def create_user_profile(sender, instance, created, **kwargs):
-    if created:
-        Perfil.objects.get_or_create(usuario=instance)
+        return self.user.username

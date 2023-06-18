@@ -289,3 +289,26 @@ label{
     color:white;
 }
 
+.imagen_perfil {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.imagen_perfil img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.miniatura_resultado {
+    height: 70px;
+    width: 70px;
+    overflow: hidden;
+}
+
+.miniatura_resultado img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
