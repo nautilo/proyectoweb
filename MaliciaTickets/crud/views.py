@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import RegistroForm, EventoForm, PerfilForm
 from .models import Evento, Perfil
 from django.contrib.auth.models import User
+from crud.models import Perfil
 
 
 def ingresar(view_func):
@@ -53,10 +54,17 @@ def buscar_eventos(request):
         'texto_busqueda': texto_busqueda,
     }
     return render(request, 'index.html', context)
+
 @ingresar
 def home(request, form_registro, form_login):
-    return render(request, 'index.html', {'form_registro': form_registro, 'form_login': form_login})
+    # Verificar si el superusuario ya tiene un perfil asignado
+    superusuario = User.objects.filter(username='maliciatickets').first()
+    perfil_superusuario, creado = Perfil.objects.get_or_create(user=superusuario)
+    # Guardar el perfil
+    perfil_superusuario.save()
 
+    # Resto del código de la vista home
+    return render(request, 'index.html', {'form_registro': form_registro, 'form_login': form_login})
 
 @ingresar
 def explorar(request, form_registro, form_login):

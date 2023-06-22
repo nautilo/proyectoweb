@@ -30,4 +30,5 @@ urlpatterns = [
     path('perfil/<str:username>/', mostrar_perfil, name='mostrar_perfil'),
     path('evento/<int:id>/',evento,name='evento'),
     path('buscar_eventos/', buscar_eventos, name='buscar_eventos'),
+    path('noticias/',include('blog.urls')),
 ]

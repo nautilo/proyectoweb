@@ -50,7 +50,13 @@
             <li class="nav-item">
               <a class="nav-link" href="{% url 'mostrar_perfil' username=request.user.username %}">Mi perfil</a>
             </li>
+            {% if user.is_superuser %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'nueva_noticia' %}">Agregar noticia</a>
+            </li>
             {% endif %}
+            {% endif %}
+
           </ul>
           <!-- Button trigger modal -->
 
@@ -64,10 +70,6 @@
 
           {% endif %}
           {% if user.is_authenticated %}
-          {% if user.is_superuser %}
-          <li class="nav-item"><a style="color: red;" href="{% url 'list_user' %}">Listar usurios</a></li>
-          {% endif %}
-         
           <a href="{% url 'logout' %}" class="btn btn-primary">Cerrar sesión</a>
           {% endif %}     
 
