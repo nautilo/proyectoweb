@@ -7,6 +7,7 @@ from .forms import RegistroForm, EventoForm, PerfilForm
 from .models import Evento, Perfil
 from django.contrib.auth.models import User
 from crud.models import Perfil
+from blog.models import Post
 
 
 def ingresar(view_func):
@@ -62,9 +63,15 @@ def home(request, form_registro, form_login):
     perfil_superusuario, creado = Perfil.objects.get_or_create(user=superusuario)
     # Guardar el perfil
     perfil_superusuario.save()
+    
+    posts = Post.objects.all()
+    return render(request, 'index.html', {'form_registro': form_registro, 'form_login': form_login,'posts':posts})
 
-    # Resto del código de la vista home
-    return render(request, 'index.html', {'form_registro': form_registro, 'form_login': form_login})
+def noticias(request):
+    posts = Post.objects.all()
+    return render(request, 'blog/noticias.html', {'posts': posts})
+
+
 
 @ingresar
 def explorar(request, form_registro, form_login):

@@ -155,56 +155,20 @@ data-ride="carousel"
   <div class="banner-seccion">
     <h3>Novedades</h3>
   </div>
+  {% for post in posts %}
   <div class="row noticia">
     <div class="col-md-3 col-sm-5 text-right">
-      <a href="./paginas/evento.html"><img
-        src="../static/img/noticias/flyer-detonando-millantu-vol6.jpg"
-        class="img-fluid"
-        alt="Your Image"
-      /></a>
+      <a href="{% url 'noticia' pk=post.pk %}">
+        <img src="../static/img/noticias/flyer-detonando-millantu-vol6.jpg" class="img-fluid" alt="Your Image" />
+      </a>
     </div>
-    <div class="col-md-9 col-sm-7 texto-noticia">
-      <a href="./paginas/evento.html"><h5>Detonando Millantú Vol. 6</h5></a>
-      <p>
-        Te invitamos a vivir una nueva edición de estas presentaciones
-        en el local Millantú 😁<br />
-
-        LINE UP 📢:<br />
-
-        @sserrite 🎤 @ironicos.banda 🌌 @gaianemusica 🐝 @asi.me.dicen
-        🧢 @cry.pops 💀<br /><br />
-
-        🤨 Fecha y hora: Sábado 1 de Abril, a las 21:00 Hrs<br />
-
-        📍Ubicación: Avenida Ambrosio O'higgins #2094 Restaurant
-        Millantú<br />
-
-        🤑Entrada: 1x$3000 2x$5000 ¡No te lo pierdas!
-      </p>
-    </div>
+      <div class="col-md-9 col-sm-7 texto-noticia">
+      <h5>{{ post.titulo }}</h5>
+      <i>{{ post.fecha_publicacion }}</i>
+      </div>
   </div>
-  <div class="row noticia">
-    <div class="col-md-3 col-sm-5 text-right">
-      <img
-        src="../static/img/noticias/flyer-pipops-fest.jpg"
-        class="img-fluid"
-        alt="Your Image"
-      />
-    </div>
-    <div class="col-md-9 col-sm-7 texto-noticia">
-      <h5>Pipops Fest 2022</h5>
-      <p>
-        🐸 PIPOPS FEST 19 DE NOVIEMBRE🐊 🌄 ven a disfrutar de nuestro
-        próximo evento completamente GRATIS y al aire libre 🫂 📍19 de
-        Noviembre en el Anfiteatro Natural de la Villa del Sol (Esquina
-        Cuyuncavi/Los Canelos) Curacaví. 🥸 LINE UP 🕺 @zurlindecl
-        @autodefensa @lupers_chile @cry.pops @ironicos.banda
-        @malaraza_banda @mamutbanda @pipe.ignoto @mubastick_banda
-        @sserrite @ka.a.ele.hi @rivercebras @gaianemusica @_gatofantasma
-        NO TE LO PIERDAS 💥💥
-      </p>
-    </div>
-  </div>
+{% endfor %}
+ 
   <button
     type="button"
     class="btn btn-primary"
