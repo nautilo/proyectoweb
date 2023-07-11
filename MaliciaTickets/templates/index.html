@@ -156,16 +156,10 @@ data-ride="carousel"
     <h3>Novedades</h3>
   </div>
   {% for post in posts %}
-  <div class="row noticia">
-    <div class="col-md-3 col-sm-5 text-right">
-      <a href="{% url 'noticia' pk=post.pk %}">
-        <img src="../static/img/noticias/flyer-detonando-millantu-vol6.jpg" class="img-fluid" alt="Your Image" />
-      </a>
-    </div>
-      <div class="col-md-9 col-sm-7 texto-noticia">
-      <h5>{{ post.titulo }}</h5>
+  <div class="row noticia texto-noticia" style="padding-left:20px;">
+        <a href="{% url 'noticia' pk=post.pk %}"><h5>{{ post.titulo }}</h5></a>
       <i>{{ post.fecha_publicacion }}</i>
-      </div>
+      <p>{{post.texto}}</p>
   </div>
 {% endfor %}
  

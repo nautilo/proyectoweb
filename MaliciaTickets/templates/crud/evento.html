@@ -25,7 +25,8 @@
       <p><strong>Ubicación:</strong> {{ evento.lugar }}</p>
       <p><strong>Entrada:</strong> ${{ evento.precio }}</p>
       <p><strong>Entradas disponibles:</strong> {{ evento.entradas_disponibles }}</p>
-      <form id="formPagar">
+      <form id="formPagar" action="{% url 'iniciar_pago' id=evento.id %}" method='POST'>
+        {% csrf_token %}
         <label for="name">Cantidad:</label>
         <input type="number" min=1 max=500 id="cantidadentradas" name="cantidadentradas" value="1">
         <h3>Total:</h3>

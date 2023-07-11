@@ -1,0 +1,31 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+<link rel="stylesheet" href="{% static 'css/estilo_explorar.css' %}">
+{% endblock %}
+{% block content %} 
+<h1>Iniciar Proceso de Pago</h1>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-6 borde_formulario">
+            <form method="GET" action="{{ url_tbk }}">
+                <div class="centrar">
+
+
+                    <h4>{{ buy_order }}</h5>
+                    <p>Precio unitario: ${{ preciounitario }}</p>  
+                    <p>Cantidad de entradas: {{ cantidadentradas }}</p>
+                    <p>Monto a Pagar: <h3>${{ amount }}</h3></p><br>
+
+                    <input type="hidden" name="token_ws" value="{{ token_ws }}" />
+                    <input type="submit" class="btn btn-primary" value="Ir a pagar">
+                    {% if mesg %}
+                    <div id="form_message" class="alert alert-danger" role="alert">{{ mesg }}</div>
+                    {% endif %}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

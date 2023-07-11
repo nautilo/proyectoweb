@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from crud.views import buscar_eventos, home, logout_view,explorar,acerca_de,contacto,mostrar_perfil,editar_perfil,evento,buscar_eventos
+from crud.views import buscar_eventos, home, iniciar_pago, pago_exitoso, logout_view,explorar,acerca_de,contacto,mostrar_perfil,editar_perfil,evento,buscar_eventos, pago_exitoso
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,4 +31,6 @@ urlpatterns = [
     path('evento/<int:id>/',evento,name='evento'),
     path('buscar_eventos/', buscar_eventos, name='buscar_eventos'),
     path('noticias/',include('blog.urls')),
+    path('iniciar_pago/<int:id>/',iniciar_pago,name='iniciar_pago'),
+    path('pago_exitoso/<int:id>/',pago_exitoso,name='pago_exitoso'),
 ]
