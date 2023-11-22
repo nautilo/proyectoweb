@@ -21,13 +21,13 @@
   </div>
 </div>
 {% if user.is_authenticated and perfil.user.username == user.username %}
-<h1>Opciones del administrador</h1>
+<h1>Gestión de usuarios</h1>
 {% else %}
-<h1>Eventos de {{ perfil.first_name }}</h1>
+<h1>usuarios de {{ perfil.first_name }}</h1>
 {% endif %}
 {% if user.is_authenticated and perfil.user.username == user.username %}
 {% if user.is_superuser %}
-<a href="{% url 'gestionarusuarios' username=user.username %}" class="btn btn-primary opcion">Gestionar usuarios</a>
+<a href="{% url 'crear_evento' %}" class="btn btn-primary opcion">Gestionar usuarios</a>
 <a href="{% url 'crear_evento' %}" class="btn btn-primary opcion">Gestionar boletas y facturas</a>
 <a href="{% url 'crear_evento' %}" class="btn btn-primary opcion">Gestionar órdenes de pedido</a>
 <a href="{% url 'crear_evento' %}" class="btn btn-primary opcion">Gestionar proveedores</a>
@@ -38,6 +38,42 @@
 {% endif %}
 
 <hr>
+<table class="table table-dark table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Fecha</th>
+      <th>Hora</th>
+      <th>Lugar</th>
+      <th>Precio</th>
+      <th>Entradas disponibles</th>
+      {% if user.is_authenticated and perfil.user.username == user.username %}
+      <th>Acciones</th>
+      {% endif %}
+    </tr>
+  </thead>
+  <tbody>
+    {% for usuario in usuarios %}
+    <tr>
+      <td>{{ usuario.id }}</td>
+      <td><a href="{% url 'usuario' id=usuario.id %}">{{ usuario.user.username }}</a></td>
+      <td>{{ usuario.fecha }}</td>
+      <td>{{ usuario.hora }}</td>
+      <td>{{ usuario.lugar }}</td>
+      <td>${{ usuario.precio }}</td>
+      <td>{{ usuario.entradas_disponibles }}</td>
+      {% if user.is_authenticated and perfil.user.username == user.username %}
+      <td>
+        <a href="{% url 'editar_evento' usuario.id %}" class="btn">Editar</a>
+        <a href="{% url 'eliminar_evento' usuario.id %}" class="btn btn-primary">Eliminar</a>
+      </td>
+      {% endif %}
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
 </div>
 
 {% endblock %}

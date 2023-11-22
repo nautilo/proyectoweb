@@ -120,7 +120,11 @@ def mostrar_perfil(request, username):
     perfil = user.perfil
     eventos = Evento.objects.filter(user=user)
     return render(request, 'crud/perfil.html', {'eventos': eventos, 'perfil': perfil})
-
+def gestionarusuarios(request, username):
+    user = get_object_or_404(User, username=username)
+    perfil = user.perfil
+    usuarios = Perfil.objects.all()
+    return render(request, 'crud/gestionarusuarios.html', {'usuarios': usuarios, 'perfil': perfil})
 @login_required
 def editar_perfil(request):
     perfil = get_object_or_404(Perfil, user=request.user)
