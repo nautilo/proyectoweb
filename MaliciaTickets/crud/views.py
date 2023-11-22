@@ -82,7 +82,7 @@ def buscar_eventos(request):
 @ingresar
 def home(request, form_registro, form_login):
     # Verificar si el superusuario ya tiene un perfil asignado
-    superusuario = User.objects.filter(username='maliciatickets').first()
+    superusuario = User.objects.filter(username='admin').first()
     perfil_superusuario, creado = Perfil.objects.get_or_create(user=superusuario)
     # Guardar el perfil
     perfil_superusuario.save()

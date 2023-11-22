@@ -29,8 +29,8 @@
     <header>
       <nav class="navbar navbar-expand-md navbar-dark bg-black">
         <a class="navbar-brand" href="{% url 'home' %}">
-          <img src="{% static 'img/logo.png' %}" alt="Logo Malicia Tickets" /></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04"
+          <img style="max-height: 100px;" src="{% static 'img/logo.png' %}" alt="Logo ServiExpress Online" /></a>
+        <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04"
           aria-controls="navbarsExample04" aria-expanded="true" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -38,23 +38,26 @@
         <div class="navbar-collapse collapse" id="navbarsExample04">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'explorar' %}">Explorar</a>
+              <a class="nav-link" href="{% url 'explorar' %}">Servicios</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'acerca_de' %}">Acerca de</a>
+              <a class="nav-link" href="{% url 'acerca_de' %}">Quiénes somos</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'contacto' %}">Contacto</a>
             </li>
-            {% if user.is_authenticated %}
+            
+            {% if not user.is_superuser %}
+
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'mostrar_perfil' username=request.user.username %}">Mi perfil</a>
-            </li>
-            {% if user.is_superuser %}
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'nueva_noticia' %}">Agregar noticia</a>
+              <a class="nav-link" href="{% url 'contacto' %}">Reservar horas</a>
             </li>
             {% endif %}
+
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'mostrar_perfil' username=request.user.username %}">Panel de administrador</a>
+            </li>
             {% endif %}
 
           </ul>
@@ -189,8 +192,8 @@
         <div class="col-lg-6 col-md-10 col-sm-12">
           <form id="form-suscripcion">
             <br />
-            <h5>Suscríbete y recibe los últimos eventos en tu correo.</h5>
-            <p>
+            <h5 style="color:black;">Suscríbete y recibe los últimos eventos en tu correo.</h5>
+            <p style="color:black;">
               Te enviamos noticias, descuentos y recomendaciones mensualmente.
             </p>
             <div class="d-flex w-100 gap-2">
@@ -205,7 +208,7 @@
       </div>
 
       <div class="d-flex justify-content-center py-4 my-4 border-top">
-        <p>© 2023 Malicia Technologies, Inc. All rights reserved.</p>
+        <p style="color:black;">© 2023 Malicia Technologies, Inc. All rights reserved.</p>
       </div>
     </footer>
 

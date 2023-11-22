@@ -5,18 +5,18 @@
 <div class="container">
 
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-lg-3">
       <div class="imagen_perfil">
         <img src="{{ perfil.imagen_perfil.url }}" alt="Imagen de perfil">
       </div>
     </div>
-    <div class="col-md-9">
+    <div class="col-lg-9">
       {% if user.is_authenticated and perfil.user.username == user.username %}
       <a href="{% url 'editar_perfil' %}">Editar perfil</a>
       {% endif %}
       <h1>{{ perfil.first_name }}</h1>
-      <h5>@{{ perfil.user.username }}</h5>
-      <p>{{ perfil.biografia }}</p>
+      <h5 style="color:rgb(32, 32, 32);">@{{ perfil.user.username }}</h5>
+      <p style="color:rgb(32, 32, 32);">{{ perfil.biografia }}</p>
     </div>
   </div>
 </div>
