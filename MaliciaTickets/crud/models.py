@@ -17,8 +17,8 @@ class Evento(models.Model):
 
 class Perfil(models.Model):
     OPCIONES_TIPO_USUARIO = [
-        ('1', 'Productor/a'),
-        ('2', 'Artista'),
+        ('1', 'Cliente'),
+        ('2', 'Empleado'),
     ]
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='perfil')

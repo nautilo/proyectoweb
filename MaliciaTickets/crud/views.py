@@ -150,7 +150,7 @@ def crear_evento(request):
         if form.is_valid():
             user = form.save()
             messages.success(request, 'El usuario ha sido registrado', 'Felicitaciones')
-            return mostrar_perfil(request, user.username)
+            return gestionarusuarios(request, 'admin')
     else:
         form = RegistroForm()
     return render(request, 'crud/crear_evento.html', {'form': form})
@@ -158,13 +158,13 @@ def crear_evento(request):
 
 @login_required
 def editar_evento(request, id):
-    evento = get_object_or_404(Evento, id=id)
+    evento = get_object_or_404(User, id=id)
     if request.method == 'POST':
-        form = EventoForm(request.POST, request.FILES, instance=evento)
+        form = RegistroForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Evento modificado correctamente.', 'Modificado')
-            return mostrar_perfil(request,evento.user.username)
+            messages.success(request, 'Usuario modificado correctamente.', 'Modificado')
+            return gestionarusuarios(request, 'admin')
     else:
         form = EventoForm(instance=evento)
     return render(request, 'crud/editar_evento.html', {'form': form, 'evento': evento})
@@ -172,12 +172,12 @@ def editar_evento(request, id):
 
 @login_required
 def eliminar_evento(request, id):
-    evento = get_object_or_404(Evento, id=id)
+    user = get_object_or_404(User, id=id)
     if request.method == 'POST':
-        evento.delete()
-        messages.success(request, 'Evento eliminado correctamente.', 'Eliminado')
-        return mostrar_perfil(request,evento.user.username)
-    return render(request, 'crud/eliminar_evento.html', {'evento': evento})
+        user.delete()
+        messages.success(request, 'Usuario eliminado correctamente.', 'Eliminado')
+        return gestionarusuarios(request, 'admin')
+    return render(request, 'crud/eliminar_evento.html', {'evento': user})
 
 
 @csrf_exempt
