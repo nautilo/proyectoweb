@@ -1,13 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load crispy_forms_tags %}
-<br><br><br><br><br><br>
 <div class="container">
     <div class="row">
         <div class="col-12 col-md-6 offset-md-3">
             <div class="card">
                 <div class="card-body bg-white">
-                    <h2 class="text-dark text text-center">Publicar un nuevo evento</h2>
+                    <h2 class="text-dark text text-center">Registrar nuevo usuario</h2>
                     <hr class="text-dark">
                     <form method="post" enctype="multipart/form-data">
                         {% csrf_token %}

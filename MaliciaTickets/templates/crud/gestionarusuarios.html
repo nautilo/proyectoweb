@@ -27,13 +27,7 @@
 {% endif %}
 {% if user.is_authenticated and perfil.user.username == user.username %}
 {% if user.is_superuser %}
-<a href="{% url 'crear_evento' %}" class="btn btn-primary opcion">Gestionar usuarios</a>
-<a href="{% url 'crear_evento' %}" class="btn btn-primary opcion">Gestionar boletas y facturas</a>
-<a href="{% url 'crear_evento' %}" class="btn btn-primary opcion">Gestionar órdenes de pedido</a>
-<a href="{% url 'crear_evento' %}" class="btn btn-primary opcion">Gestionar proveedores</a>
-<a href="{% url 'crear_evento' %}" class="btn btn-primary opcion">Gestionar servicios</a>
-<a href="{% url 'crear_evento' %}" class="btn btn-primary opcion">Gestionar empleados</a>
-<a href="{% url 'crear_evento' %}" class="btn btn-primary opcion">Informes</a>
+<a href="{% url 'crear_evento' %}" class="btn btn-primary opcion">Registrar nuevo usuario</a>
 {% endif %}
 {% endif %}
 
@@ -42,12 +36,10 @@
   <thead>
     <tr>
       <th>ID</th>
-      <th>Nombre</th>
-      <th>Fecha</th>
-      <th>Hora</th>
-      <th>Lugar</th>
-      <th>Precio</th>
-      <th>Entradas disponibles</th>
+      <th>Usuario</th>
+      <th>Nombre Completo</th>
+      <th>Número de atenciones</th>
+      <th>Tipo</th>
       {% if user.is_authenticated and perfil.user.username == user.username %}
       <th>Acciones</th>
       {% endif %}
@@ -57,15 +49,20 @@
     {% for usuario in usuarios %}
     <tr>
       <td>{{ usuario.id }}</td>
-      <td><a href="{% url 'usuario' id=usuario.id %}">{{ usuario.user.username }}</a></td>
-      <td>{{ usuario.fecha }}</td>
-      <td>{{ usuario.hora }}</td>
-      <td>{{ usuario.lugar }}</td>
-      <td>${{ usuario.precio }}</td>
-      <td>{{ usuario.entradas_disponibles }}</td>
-      {% if user.is_authenticated and perfil.user.username == user.username %}
+      <td><a href="{% url 'mostrar_perfil' username=usuario.user.username %}">{{ usuario.user.username }}</a></td>      {% if user.is_authenticated and perfil.user.username == user.username %}
+      <td>{{ usuario.first_name }}</td>
+      <td>{{ usuario.biografia|length }}</td>
       <td>
-        <a href="{% url 'editar_evento' usuario.id %}" class="btn">Editar</a>
+        {% if usuario.tipo_perfil == '1' %}
+          Cliente
+        {% elif usuario.tipo_perfil == '2' %}
+          Empleado
+        {% else %}
+          Cliente
+        {% endif %}
+      </td>
+      <td>
+        <a href="{% url 'editar_evento' usuario.id %}" class="btn btn-primary">Editar</a>
         <a href="{% url 'eliminar_evento' usuario.id %}" class="btn btn-primary">Eliminar</a>
       </td>
       {% endif %}

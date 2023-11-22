@@ -146,15 +146,13 @@ def evento(request,id):
 @login_required
 def crear_evento(request):
     if request.method == 'POST':
-        form = EventoForm(request.POST, request.FILES)
+        form = RegistroForm(request.POST)
         if form.is_valid():
-            evento = form.save(commit=False)
-            evento.user = request.user  # Set authenticated user as the value for the 'user' field
-            evento.save()
-            messages.success(request, '¡Tu evento ya está publicado!', 'Felicitaciones')
-            return mostrar_perfil(request,evento.user.username)
+            user = form.save()
+            messages.success(request, 'El usuario ha sido registrado', 'Felicitaciones')
+            return mostrar_perfil(request, user.username)
     else:
-        form = EventoForm()
+        form = RegistroForm()
     return render(request, 'crud/crear_evento.html', {'form': form})
 
 
