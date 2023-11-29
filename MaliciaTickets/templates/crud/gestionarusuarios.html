@@ -51,7 +51,11 @@
       <td>{{ usuario.id }}</td>
       <td><a href="{% url 'mostrar_perfil' username=usuario.user.username %}">{{ usuario.user.username }}</a></td>      {% if user.is_authenticated and perfil.user.username == user.username %}
       <td>{{ usuario.first_name }}</td>
+      {% if usuario.user.username != 'admin' %}
       <td>{{ usuario.biografia|length }}</td>
+      {% else %}
+      <td>-</td>
+      {% endif %}
       <td>
         {% if usuario.tipo_perfil == '1' %}
           Cliente
@@ -63,7 +67,12 @@
       </td>
       <td>
         <a href="{% url 'editar_evento' usuario.id %}" class="btn btn-primary">Editar</a>
-        <a href="{% url 'eliminar_evento' usuario.id %}" class="btn btn-primary">Eliminar</a>
+
+        {% if usuario.user.username != 'admin' %}
+          <a href="{% url 'eliminar_evento' usuario.user.id %}" class="btn btn-primary">Eliminar</a>
+        {% else %}
+          <button class="btn btn-secondary disabled" disabled>Eliminar</button>
+        {% endif %}
       </td>
       {% endif %}
     </tr>

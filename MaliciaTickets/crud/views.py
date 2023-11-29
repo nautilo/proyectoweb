@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from .forms import RegistroForm, EventoForm, PerfilForm
+from .forms import RegistroForm, EventoForm, PerfilForm, UsuarioEdicionForm
 from .models import Evento, Perfil
 from django.contrib.auth.models import User
 from crud.models import Perfil
@@ -158,15 +158,15 @@ def crear_evento(request):
 
 @login_required
 def editar_evento(request, id):
-    evento = get_object_or_404(User, id=id)
+    evento = get_object_or_404(Perfil, id=id)  # Cambiado a Perfil en lugar de User
     if request.method == 'POST':
-        form = RegistroForm(request.POST)
+        form = UsuarioEdicionForm(request.POST, instance=evento.user)  # Pasar la instancia de User al formulario
         if form.is_valid():
             form.save()
             messages.success(request, 'Usuario modificado correctamente.', 'Modificado')
             return gestionarusuarios(request, 'admin')
     else:
-        form = EventoForm(instance=evento)
+        form = UsuarioEdicionForm(instance=evento.user)  # Pasar la instancia de User al formulario
     return render(request, 'crud/editar_evento.html', {'form': form, 'evento': evento})
 
 
