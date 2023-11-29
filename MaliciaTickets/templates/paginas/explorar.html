@@ -4,45 +4,71 @@
 <link rel="stylesheet" href="{% static 'css/estilo_explorar.css' %}">
 {% endblock %}
 {% block content %} 
-<div class="container-fluid">
-  <h1>Eventos más próximos en Chile</h1>
-  <div class="banner-seccion mes">
-      <h3>Mayo</h3>
+<div class="container mt-5">
+  <h1 class="mb-4">Servicios de Mecánica Automotriz</h1>
+
+  <!-- Servicio 1 -->
+  <div class="card mb-4">
+    <div class="card-header">
+      <h2 style="color:black;">Servicio de Cambio de Aceite</h2>
+    </div>
+    <div class="card-body">
+      <p style="color:black;">
+        Realizamos cambios de aceite utilizando productos de alta calidad para mantener el motor de tu vehículo en óptimas condiciones. Este servicio incluye la sustitución del filtro de aceite.
+      </p>
+    </div>
   </div>
-  <table class="table-responsive" id="calendarioMesActual">
-      <thead>
-        <tr>
-          <th>Lunes</th>
-          <th>Martes</th>
-          <th>Miércoles</th>
-          <th>Jueves</th>
-          <th>Viernes</th>
-          <th>Sábado</th>
-          <th>Domingo</th>
-        </tr>
-      </thead>
-      <tbody>
-      </tbody>
-    </table>
-    <div class="banner-seccion mes">
-      <h3>Junio</h3>
+
+  <!-- Servicio 2 -->
+  <div class="card mb-4">
+    <div class="card-header">
+      <h2 style="color:black;">Alineación y Balanceo</h2>
+    </div>
+    <div class="card-body">
+      <p style="color:black;">
+        Ofrecemos servicios de alineación y balanceo para garantizar un manejo suave y seguro. Nuestro equipo utiliza tecnología de última generación para ajustar las ruedas de acuerdo con las especificaciones del fabricante.
+      </p>
+    </div>
   </div>
-    <table class="table-responsive" id="calendarioMesSiguiente">
-      <thead>
-        <tr>
-          <th>Lunes</th>
-          <th>Martes</th>
-          <th>Miércoles</th>
-          <th>Jueves</th>
-          <th>Viernes</th>
-          <th>Sábado</th>
-          <th>Domingo</th>
-        </tr>
-      </thead>
-      <tbody>
-      </tbody>
-    </table>
+
+  <!-- Servicio 3 -->
+  <div class="card mb-4">
+    <div class="card-header">
+      <h2 style="color:black;">Reparación de Frenos</h2>
+    </div>
+    <div class="card-body">
+      <p style="color:black;">
+        Realizamos inspecciones y reparaciones de sistemas de frenos. Si experimentas ruidos, vibraciones o problemas al frenar, nuestro equipo de expertos identificará y solucionará los problemas.
+      </p>
+    </div>
   </div>
+
+  <!-- Servicio 4 -->
+  <div class="card mb-4">
+    <div class="card-header">
+      <h2 style="color:black;">Diagnóstico de Motor</h2>
+    </div>
+    <div class="card-body">
+      <p style="color:black;">
+        Utilizamos herramientas avanzadas para realizar diagnósticos precisos del motor. Ya sea una luz de check engine encendida o un rendimiento deficiente, podemos identificar y solucionar problemas de motor.
+      </p>
+    </div>
+  </div>
+
+  <!-- Servicio 5 -->
+  <div class="card mb-4">
+    <div class="card-header">
+      <h2 style="color:black;">Cambio de Batería</h2>
+    </div>
+    <div class="card-body">
+      <p style="color:black;">
+        Ofrecemos servicios de cambio de batería para garantizar un arranque confiable. Utilizamos baterías de calidad y realizamos pruebas para asegurarnos de que tu vehículo esté listo para cualquier condición.
+      </p>
+    </div>
+  </div>
+
+</div>
+
 {% endblock %}
 {% block js %}
 <script src="{% static 'js/calendario.js' %}"></script>

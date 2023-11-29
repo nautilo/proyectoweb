@@ -47,16 +47,15 @@
               <a class="nav-link" href="{% url 'contacto' %}">Contacto</a>
             </li>
             
-            {% if not user.is_superuser %}
 
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'contacto' %}">Reservar horas</a>
-            </li>
-            {% endif %}
-
-            {% if user.is_authenticated %}
+            {% if user.is_authenticated and user.is_superuser %}
             <li class="nav-item">
               <a class="nav-link" href="{% url 'mostrar_perfil' username=request.user.username %}">Panel de administrador</a>
+            </li>
+            {% endif %}
+            {% if user.is_authenticated and not user.is_superuser %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'mostrar_perfil' username=request.user.username %}">Panel de servicios</a>
             </li>
             {% endif %}
 

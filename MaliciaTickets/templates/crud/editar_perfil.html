@@ -15,40 +15,7 @@
 
 
 <hr>
-  <h1>Tus eventos</h1>
-  <a href="{% url 'crear_evento' %}" class="btn btn-active">Agregar evento</a>
-  <hr>
-  <table class="table table-dark table-striped table-bordered">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Nombre</th>
-        <th>Fecha</th>
-        <th>Hora</th>
-        <th>Lugar</th>
-        <th>Precio</th>
-        <th>Entradas disponibles</th>
-        <th>Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for evento in eventos %}
-      <tr>
-        <td>{{ evento.id }}</td>
-        <td>{{ evento.nombre }}</td>
-        <td>{{ evento.fecha }}</td>
-        <td>{{ evento.hora }}</td>
-        <td>{{ evento.lugar }}</td>
-        <td>{{ evento.precio }}</td>
-        <td>{{ evento.entradas_disponibles }}</td>
-        <td>
-          <a href="{% url 'editar_evento' evento.id %}" class="btn">Editar</a>
-          <a href="{% url 'eliminar_evento' evento.id %}" class="btn btn-primary">Eliminar</a>
-        </td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+
 </div>
 
 {% endblock %}
